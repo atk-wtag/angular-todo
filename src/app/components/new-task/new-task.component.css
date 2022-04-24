@@ -1,0 +1,51 @@
+.add-todo {
+  width: 22.768rem;
+  max-width: auto;
+  overflow: hidden;
+  min-height: 155px;
+  background: #ffffff;
+  border: 1px solid #dde2ff;
+  box-sizing: border-box;
+  border-radius: 5px;
+  padding: 4%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  word-wrap: break-word;
+}
+
+app-icon-button {
+  margin: 0.2rem;
+}
+
+/* .add-completed {
+  text-decoration: line-through;
+  color: rgb(11, 195, 117);
+} */
+
+.add-todo-bottom-div {
+  display: flex;
+  justify-content: space-between;
+}
+
+/* .add-todo-bottom-completed-div {
+  position: relative;
+  display: flex;
+  background: #7a8dfd;
+  border-radius: 5px;
+  text-align: center;
+  align-items: center;
+  padding: 8px;
+  max-height: 15px;
+} */
+/*
+.add-completed-text {
+  color: rgba(255, 255, 255, 1);
+  font-size: 12px;
+  line-height: 14px;
+  font-weight: 500;
+} */
+
+.add-todo-bottom-buttons-div {
+  display: flex;
+}

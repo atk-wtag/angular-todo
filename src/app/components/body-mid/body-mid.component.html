@@ -1,0 +1,17 @@
+<div class="container">
+  <div class="body-mid">
+    <app-new-task *ngIf="newTaskVisible"></app-new-task>
+    <ng-template [ngIf]="this.todosToRender">
+      <app-todo
+        *ngFor="
+          let todo of this.todosToRender
+            | async
+            | search: this.state.searchKeyword
+            | slice: this.loadMoreService.showFrom:this.to
+        "
+        [todo]="todo"
+      >
+      </app-todo
+    ></ng-template>
+  </div>
+</div>

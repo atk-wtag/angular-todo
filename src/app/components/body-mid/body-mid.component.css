@@ -1,0 +1,6 @@
+.body-mid {
+  margin-top: 4vh;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(22rem, 1fr));
+  gap: 2.1rem;
+}

@@ -1,0 +1,22 @@
+#header {
+  background: rgba(255, 255, 255, 1);
+  border: 1px solid #dde2ff;
+  border-right: none;
+  display: flex;
+  justify-content: space-between;
+  min-height: 7.5vh;
+}
+
+#header-logo {
+  margin-left: 9vw;
+  border: none;
+  position: relative;
+}
+
+#header-logo object {
+  position: relative;
+  padding-top: 10%;
+  border: none;
+  position: relative;
+  width: 125px;
+}

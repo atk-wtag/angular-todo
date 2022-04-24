@@ -1,0 +1,17 @@
+<button [ngClass]="class">
+  <span #textButtonIcon *ngIf="class === 'createButton'" id="buttonIconSpan"
+    ><svg
+      id="createSVG"
+      width="14"
+      height="14"
+      viewBox="0 0 16 16"
+      fill="none"
+      xmlns="http://www.w3.org/2000/svg"
+    >
+      <path
+        d="M16 6.66667H9.33333V0H6.66667V6.66667H0V9.33333H6.66667V16H9.33333V9.33333H16V6.66667Z"
+        fill="white"
+      ></path></svg
+  ></span>
+  <span class="textButton-text">{{ text }}</span>
+</button>
