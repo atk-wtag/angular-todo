@@ -14,6 +14,8 @@ import { FormsModule } from '@angular/forms';
 import { SearchPipe } from './pipes/search.pipe';
 import { NewTaskComponent } from './components/new-task/new-task.component';
 import { BodyBottomComponent } from './components/body-bottom/body-bottom.component';
+import {HTTP_INTERCEPTORS, HttpClientModule} from "@angular/common/http";
+import {HttpInterceptorService} from "./services/httpInterceptor/http-interceptor.service";
 @NgModule({
   declarations: [
     AppComponent,
@@ -28,8 +30,8 @@ import { BodyBottomComponent } from './components/body-bottom/body-bottom.compon
     NewTaskComponent,
     BodyBottomComponent,
   ],
-  imports: [BrowserModule, AppRoutingModule, FormsModule],
-  providers: [],
+  imports: [BrowserModule, AppRoutingModule, FormsModule, HttpClientModule],
+  providers: [{provide: HTTP_INTERCEPTORS, useClass: HttpInterceptorService, multi: true}],
   bootstrap: [AppComponent],
 })
 export class AppModule {}
