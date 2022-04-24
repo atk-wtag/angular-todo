@@ -1,0 +1,61 @@
+.textButton {
+  font-size: 15px;
+  line-height: 19px;
+  color: #32394b;
+  background: #ffffff;
+  border: 1px solid #dde2ff;
+  border-radius: 5px;
+  min-height: 3.8vh;
+  min-width: 2.5vw;
+  text-align: center;
+  padding: 0 15px;
+  transition: all 200ms ease-in-out;
+  cursor: pointer;
+}
+
+.textButton:hover {
+  box-shadow: #dde2ff 0 1px 0, #dde2ff 0 0 10px;
+}
+
+.createButton {
+  font-size: 16px;
+  min-width: 5.6vw;
+  line-height: 19px;
+  color: #ffffff;
+  background: #7a8dfd;
+  border: 1px solid #7a8dfd;
+  border-radius: 5px;
+  min-height: 3.8vh;
+  text-align: center;
+  padding: 0 15px;
+  transition: all 200ms ease-in-out;
+  cursor: pointer;
+}
+
+.createButton:hover {
+  box-shadow: rgba(122, 141, 253, 0.6) 0 1px 1px, rgba(122, 141, 253, 0.6) 0 0 7px;
+}
+
+#buttonIconSpan {
+  padding-right: 0.3vw;
+}
+
+.loadMoreButton {
+  background: rgba(50, 57, 75, .95);
+  border: none;
+  border-radius: 5px;
+  font-size: 16px;
+  line-height: 19px;
+  color: #ffffff;
+  min-height: 3.8vh;
+  min-width: 6.5vw;
+  text-align: center;
+  padding: 0 15px;
+  transition: all 200ms ease-in-out;
+  cursor: pointer;
+}
+
+.loadMoreButton:hover {
+  box-shadow: #5e5e5e 0px 0.5px 4px, #5e5e5e 0px 0px 4px;
+  border: none;
+}

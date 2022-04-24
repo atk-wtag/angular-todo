@@ -1,0 +1,38 @@
+<div class="container">
+  <div class="body-top-div"><p class="lg-txt">Add Tasks</p></div>
+
+  <div class="body-top-div" id="buttonDiv">
+    <div id="createButtonDiv">
+      <app-text-button
+        [class]="'createButton'"
+        [text]="'Create'"
+        (click)="showAddNewTask()"
+      ></app-text-button>
+    </div>
+    <!-- create button div end-->
+
+    <!-- filter buttons div -->
+    <div id="filterButtonDiv">
+      <app-text-button
+        [text]="'All'"
+        [routerLink]="'/all'"
+        [routerLinkActive]="['is-active']"
+        [routerLinkActiveOptions]="{ exact: true }"
+      ></app-text-button>
+      <app-text-button
+        [text]="'Incomplete'"
+        [routerLink]="'/incomplete'"
+        [routerLinkActive]="'active'"
+        [routerLinkActive]="['is-active']"
+        [routerLinkActiveOptions]="{ exact: true }"
+      ></app-text-button>
+      <app-text-button
+        [text]="'Completed'"
+        [routerLink]="'/complete'"
+        [routerLinkActive]="['is-active']"
+        [routerLinkActiveOptions]="{ exact: true }"
+      ></app-text-button>
+    </div>
+    <!-- filter buttons div end-->
+  </div>
+</div>

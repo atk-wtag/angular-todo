@@ -1,0 +1,8 @@
+<div class="body-bottom">
+  <app-text-button
+    *ngIf="this.loadMoreService.showLoadMore.value"
+    [text]="'Load More'"
+    [class]="'loadMoreButton'"
+    (click)="loadMore()"
+  ></app-text-button>
+</div>
