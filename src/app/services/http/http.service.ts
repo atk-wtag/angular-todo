@@ -19,4 +19,13 @@ export class HttpService {
     const u_id: number = todo.u_id;
     return this.httpClient.delete(`${this._apiUrl}u_id=eq.${u_id}`);
   }
+
+  addTodo(todo: Todo): Observable<any> {
+    return this.httpClient.post(`${this._apiUrl}`, todo);
+  }
+
+  updateTodo(todo: any): Observable<any> {
+    const u_id: number = todo.u_id;
+    return this.httpClient.patch(`${this._apiUrl}u_id=eq.${u_id}`, todo);
+  }
 }

@@ -36,14 +36,14 @@ export class TodoStoreService {
   }
 
   addTodo(description: string): void {
-    this._todos.next([
-      Object.assign(new Todo(), this._todoSkeleton, { description }),
-      ...this.todos,
-    ]);
+    const newTodo = Object.assign(new Todo(), this._todoSkeleton, {
+      description,
+    });
+    this._todos.next([newTodo, ...this.todos]);
+    this._httpService.addTodo(newTodo).subscribe((y) => console.log(y));
   }
 
   removeTodo(value: Todo) {
-    const copyState = this.todos;
     this._httpService.deleteTodo(value).subscribe();
     this.todos = this.todos.filter((todo) => todo !== value);
   }
@@ -51,15 +51,24 @@ export class TodoStoreService {
   setCompleted(value: Todo): void {
     const date = this.getCurrentDate();
 
-    this.todos.forEach((todo) =>
-      todo === value
-        ? Object.assign(todo, { completed: true, completedAt: date })
-        : null
-    );
+    const completedTodo = Object.assign(value, {
+      completed: true,
+      completedAt: date,
+    });
+
+    this._httpService
+      .updateTodo({ u_id: value.u_id, completed: true, completedAt: date })
+      .subscribe();
+
+    this.todos.forEach((todo) => (todo === value ? completedTodo : null));
     this.todos = this.todos;
   }
 
   updateTodo(value: Todo, description: string): void {
+    if (value.description === description) return;
+    this._httpService
+      .updateTodo({ u_id: value.u_id, description: description })
+      .subscribe();
     this.todos.forEach((todo) =>
       todo === value ? (todo.description = description) : null
     );
