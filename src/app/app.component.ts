@@ -1,9 +1,9 @@
-import {Component, OnInit} from '@angular/core';
-import {Todo} from './models/todo.model';
-import {SupabaseService} from 'src/app/services/supabase/supabase.service';
-import {TodoStoreService} from './services/state/todoStore.service';
-import {LoadMoreService} from './services/loadmore/load-more.service';
-import {HttpService} from './services/http/http.service';
+import { Component, OnInit } from '@angular/core';
+import { Todo } from './models/todo.model';
+import { SupabaseService } from 'src/app/services/supabase/supabase.service';
+import { TodoStoreService } from './services/state/todoStore.service';
+import { LoadMoreService } from './services/loadmore/load-more.service';
+import { HttpService } from './services/http/http.service';
 
 @Component({
   selector: 'app-root',
@@ -16,28 +16,13 @@ export class AppComponent implements OnInit {
   todos: any;
 
   constructor(
-    private readonly _supabase: SupabaseService,
     private _state: TodoStoreService,
-    private _loadMoreService: LoadMoreService,
-    private _httpService: HttpService
-  ) {
-  }
+    private _loadMoreService: LoadMoreService
+  ) {}
 
   ngOnInit() {
-    const allTodos = this._httpService.getAllDescending();
+    this._state.getAllTodos();
 
-    allTodos.subscribe((todos: Todo[]) => {
-      this.todos = todos;
-      this._state.todos = this.todos;
-    });
-    
     this._loadMoreService.showLoadMore.next(true);
-    // const todos = await this._supabase.allTodos;
-
-    // this.todos = todos.data?.map((todo) =>
-    //   new TodoOperation().deserialize(todo)
-    // );
-
-
   }
 }

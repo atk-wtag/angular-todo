@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { BehaviorSubject, map, Observable } from 'rxjs';
 import { Todo } from 'src/app/models/todo.model';
+import { HttpService } from '../http/http.service';
 
 @Injectable({
   providedIn: 'root',
@@ -17,7 +18,7 @@ export class TodoStoreService {
   private _todos = new BehaviorSubject<Todo[]>([]);
   readonly todos$: Observable<Todo[]> = this._todos;
 
-  constructor() {}
+  constructor(private _httpService: HttpService) {}
 
   set todos(value: Todo[]) {
     this._todos.next(value);
@@ -27,6 +28,13 @@ export class TodoStoreService {
     return this._todos.getValue();
   }
 
+  getAllTodos() {
+    const allTodos = this._httpService.getAllDescending();
+    allTodos.subscribe((todos: Todo[]) => {
+      this.todos = todos;
+    });
+  }
+
   addTodo(description: string): void {
     this._todos.next([
       Object.assign(new Todo(), this._todoSkeleton, { description }),
@@ -34,7 +42,11 @@ export class TodoStoreService {
     ]);
   }
 
-  removeTodo(value: Todo): void {
+  removeTodo(value: Todo) {
+    const copyState = this.todos;
+    this._httpService.deleteTodo(value).subscribe((data) => {
+      console.log(data);
+    });
     this.todos = this.todos.filter((todo) => todo !== value);
   }
 
