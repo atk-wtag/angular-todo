@@ -17,6 +17,6 @@ export class HttpService {
 
   deleteTodo(todo: Todo): Observable<any> {
     const u_id: number = todo.u_id;
-    return this.httpClient.delete(`${this._apiUrl}1u_id=eq.${u_id}`);
+    return this.httpClient.delete(`${this._apiUrl}u_id=eq.${u_id}`);
   }
 }

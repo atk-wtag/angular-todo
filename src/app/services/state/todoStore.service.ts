@@ -44,9 +44,7 @@ export class TodoStoreService {
 
   removeTodo(value: Todo) {
     const copyState = this.todos;
-    this._httpService.deleteTodo(value).subscribe((data) => {
-      console.log(data);
-    });
+    this._httpService.deleteTodo(value).subscribe();
     this.todos = this.todos.filter((todo) => todo !== value);
   }
 
