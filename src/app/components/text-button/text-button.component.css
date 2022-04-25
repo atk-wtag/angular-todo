@@ -33,7 +33,8 @@
 }
 
 .createButton:hover {
-  box-shadow: rgba(122, 141, 253, 0.6) 0 1px 1px, rgba(122, 141, 253, 0.6) 0 0 7px;
+  box-shadow: rgba(122, 141, 253, 0.6) 0 1px 1px,
+    rgba(122, 141, 253, 0.6) 0 0 7px;
 }
 
 #buttonIconSpan {
@@ -41,7 +42,7 @@
 }
 
 .loadMoreButton {
-  background: rgba(50, 57, 75, .95);
+  background: rgba(50, 57, 75, 0.95);
   border: none;
   border-radius: 5px;
   font-size: 16px;

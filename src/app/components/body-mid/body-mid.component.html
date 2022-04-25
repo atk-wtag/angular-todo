@@ -7,7 +7,7 @@
           let todo of this.todosToRender
             | async
             | search: this.state.searchKeyword
-            | slice: this.loadMoreService.showFrom:this.to
+            | slice: this.from:this.to
         "
         [todo]="todo"
       >
