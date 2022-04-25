@@ -13,11 +13,13 @@
   word-wrap: break-word;
 }
 
-/* @media only screen and (max-width: 1442) {
+@media only screen and (max-width: 400px) {
   .todo {
-    width: auto;
+    min-width: none;
+    max-width: auto;
+    margin-right: 9vw;
   }
-} */
+}
 
 app-icon-button {
   margin: 0.2rem;
