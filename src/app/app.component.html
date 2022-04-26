@@ -1,4 +1,8 @@
-<app-header></app-header>
-<app-body-top> </app-body-top>
-<router-outlet></router-outlet>
-<app-body-bottom></app-body-bottom>
+<app-splash *ngIf="showSplash"></app-splash>
+
+<ng-container *ngIf="!showSplash">
+  <app-header></app-header>
+  <app-body-top> </app-body-top>
+  <router-outlet></router-outlet>
+  <app-body-bottom></app-body-bottom>
+</ng-container>

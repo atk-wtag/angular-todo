@@ -17,6 +17,7 @@ import { BodyBottomComponent } from './components/body-bottom/body-bottom.compon
 import { HTTP_INTERCEPTORS, HttpClientModule } from '@angular/common/http';
 import { HttpInterceptorService } from './services/httpInterceptor/http-interceptor.service';
 import { CountPipe } from './pipes/count/count.pipe';
+import { SplashComponent } from './components/splash/splash/splash.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -31,6 +32,7 @@ import { CountPipe } from './pipes/count/count.pipe';
     NewTaskComponent,
     BodyBottomComponent,
     CountPipe,
+    SplashComponent,
   ],
   imports: [
     BrowserModule,

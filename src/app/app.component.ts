@@ -1,9 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { Todo } from './models/todo.model';
-import { SupabaseService } from 'src/app/services/supabase/supabase.service';
-import { TodoStoreService } from './services/state/todoStore.service';
 import { LoadMoreService } from './services/loadmore/load-more.service';
-import { HttpService } from './services/http/http.service';
+import { TodoStoreService } from './services/state/todoStore.service';
 
 @Component({
   selector: 'app-root',
@@ -11,8 +8,8 @@ import { HttpService } from './services/http/http.service';
   styleUrls: ['./app.component.css'],
 })
 export class AppComponent implements OnInit {
-  title = 'basicTodo';
-
+  title = 'Todo App';
+  showSplash: boolean = true;
   todos: any;
 
   constructor(
@@ -24,5 +21,9 @@ export class AppComponent implements OnInit {
     this._state.getAllTodos();
 
     this._loadMoreService.showLoadMore.next(true);
+
+    setTimeout(() => {
+      this.showSplash = !this.showSplash;
+    }, 1500);
   }
 }

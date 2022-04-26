@@ -1,11 +1,11 @@
-import { Component, OnInit } from '@angular/core';
 import {
-  trigger,
+  animate,
   state,
   style,
-  animate,
   transition,
+  trigger,
 } from '@angular/animations';
+import { Component } from '@angular/core';
 import { HttpService } from 'src/app/services/http/http.service';
 
 @Component({
@@ -35,11 +35,4 @@ import { HttpService } from 'src/app/services/http/http.service';
 })
 export class HeaderComponent {
   constructor(public httpService: HttpService) {}
-
-  // toggle() {
-  //   this.error = !this.error;
-  //   setTimeout(() => {
-  //     this.error = !this.error;
-  //   }, 1500);
-  // }
 }
