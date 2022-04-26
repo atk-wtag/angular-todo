@@ -1,20 +1,31 @@
 import { Pipe, PipeTransform } from '@angular/core';
 import { Todo } from '../models/todo.model';
 import { LoadMoreService } from '../services/loadmore/load-more.service';
+import { TodoStoreService } from '../services/state/todoStore.service';
 
 @Pipe({
   name: 'search',
 })
 export class SearchPipe implements PipeTransform {
-  constructor(private _loadMoreService: LoadMoreService) {}
+  currentLength: number;
+  previousLength: number;
+
+  constructor(
+    private _loadMoreService: LoadMoreService,
+    private _state: TodoStoreService
+  ) {}
 
   transform(value: any, args: string): any {
-    if (!value) return null;
-    if (!args || args.length < 3) {
-      this._loadMoreService.reset();
-      return value;
-    }
+    this.currentLength = args.length;
 
+    if (!value) return null;
+    if (args.length < 3) {
+      if (this.previousLength >= 3) {
+        this._loadMoreService.reset();
+        this.previousLength = 0;
+      }
+      return value;
+    } else this.previousLength = this.currentLength;
     return value.filter((data: Todo) =>
       data.description.toLowerCase().includes(args.toLowerCase())
     );

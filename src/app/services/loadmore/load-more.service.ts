@@ -22,7 +22,6 @@ export class LoadMoreService {
         value <= this.showTill
           ? this.showLoadMore.next(false)
           : this.showLoadMore.next(true);
-        console.log('to', this.showTill);
       });
     });
   }

@@ -8,9 +8,7 @@ import { HttpService } from '../http/http.service';
 })
 export class TodoStoreService {
   private readonly _todoSkeleton = {
-    u_id: Date.now(),
     completed: false,
-    createdAt: this.getCurrentDate(),
     completedAt: null,
   };
 
@@ -37,10 +35,12 @@ export class TodoStoreService {
 
   addTodo(description: string): void {
     const newTodo = Object.assign(new Todo(), this._todoSkeleton, {
+      u_id: Date.now(),
       description,
+      createdAt: this.getCurrentDate(),
     });
     this._todos.next([newTodo, ...this.todos]);
-    this._httpService.addTodo(newTodo).subscribe((y) => console.log(y));
+    this._httpService.addTodo(newTodo).subscribe();
   }
 
   removeTodo(value: Todo) {
