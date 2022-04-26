@@ -1,4 +1,10 @@
-<!-- <div id="toastr" class="show-err">An Error has occurred</div> -->
+<div
+  id="toastr"
+  [@show-hide-toastr]="this.httpService.httpError ? 'show' : 'hide'"
+>
+  An Error has occurred
+</div>
+
 <div id="header">
   <div id="header-logo">
     <object

@@ -11,10 +11,14 @@ import { environment } from 'src/environments/environment';
 import { map } from 'rxjs/operators';
 import { Todo, TodoOperation } from 'src/app/models/todo.model';
 import { TodoStoreService } from '../state/todoStore.service';
+import { HttpService } from '../http/http.service';
 
 @Injectable()
 export class HttpInterceptorService {
-  constructor(private _state: TodoStoreService) {}
+  constructor(
+    private _state: TodoStoreService,
+    private _httpService: HttpService
+  ) {}
 
   intercept(
     req: HttpRequest<any>,
@@ -39,13 +43,12 @@ export class HttpInterceptorService {
 
           return Object.assign(event, { body: todoEvent });
         }
-
         return event;
       }),
       retry(2),
       catchError((error: HttpErrorResponse) => {
+        this._httpService.httpError = true;
         if (requestWithHeader.method !== 'GET') {
-          console.log(error);
           this._state.getAllTodos();
         }
         return throwError(() => error);
