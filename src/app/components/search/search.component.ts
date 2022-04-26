@@ -6,13 +6,11 @@ import { TodoStoreService } from 'src/app/services/state/todoStore.service';
   templateUrl: './search.component.html',
   styleUrls: ['./search.component.css'],
 })
-export class SearchComponent implements OnInit {
+export class SearchComponent {
   @ViewChild('searchBar') search: ElementRef;
   showSearchBar: boolean = false;
 
   constructor(public state: TodoStoreService) {}
-
-  ngOnInit(): void {}
 
   toggleSearchBarVisibility() {
     this.showSearchBar = !this.showSearchBar;

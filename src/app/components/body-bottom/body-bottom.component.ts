@@ -6,15 +6,13 @@ import { LoadMoreService } from '../../services/loadmore/load-more.service';
   templateUrl: './body-bottom.component.html',
   styleUrls: ['./body-bottom.component.css'],
 })
-export class BodyBottomComponent implements OnInit {
+export class BodyBottomComponent {
   noTodos: boolean = false;
   constructor(public loadMoreService: LoadMoreService) {
     this.loadMoreService.showLoadMore.subscribe((value) => {
       this.noTodos = value;
     });
   }
-
-  ngOnInit(): void {}
 
   loadMore() {
     this.loadMoreService.loadMore();

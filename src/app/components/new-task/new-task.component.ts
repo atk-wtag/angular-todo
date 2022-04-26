@@ -15,7 +15,7 @@ import { SanitizeService } from '../../services/sanitization/sanitize.service';
   templateUrl: './new-task.component.html',
   styleUrls: ['./new-task.component.css'],
 })
-export class NewTaskComponent implements OnInit, AfterViewInit {
+export class NewTaskComponent implements AfterViewInit {
   @ViewChild('newTextArea') textArea: ElementRef;
 
   constructor(
@@ -24,8 +24,6 @@ export class NewTaskComponent implements OnInit, AfterViewInit {
     private _sanitizationService: SanitizeService,
     private _router: Router
   ) {}
-
-  ngOnInit(): void {}
 
   getDeleteIcon() {
     return `<svg

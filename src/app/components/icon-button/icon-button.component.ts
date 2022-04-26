@@ -12,7 +12,7 @@ import {
   templateUrl: './icon-button.component.html',
   styleUrls: ['./icon-button.component.css'],
 })
-export class IconButtonComponent implements OnInit, AfterViewInit {
+export class IconButtonComponent implements AfterViewInit {
   showToolTip: boolean = false;
 
   @Input() toolTipText: string;
@@ -22,8 +22,6 @@ export class IconButtonComponent implements OnInit, AfterViewInit {
   @ViewChild('tooltipVar') tooltip: ElementRef;
 
   constructor() {}
-
-  ngOnInit(): void {}
 
   ngAfterViewInit() {
     this.iconButton.nativeElement.innerHTML = this.icon;

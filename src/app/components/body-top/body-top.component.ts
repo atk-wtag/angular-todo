@@ -7,10 +7,8 @@ import { AddNewService } from 'src/app/services/addnew/addNew.service';
   templateUrl: './body-top.component.html',
   styleUrls: ['./body-top.component.css'],
 })
-export class BodyTopComponent implements OnInit {
+export class BodyTopComponent {
   constructor(private _addNewService: AddNewService) {}
-
-  ngOnInit(): void {}
 
   showAddNewTask() {
     this._addNewService.newTask = true;

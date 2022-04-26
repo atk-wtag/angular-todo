@@ -12,13 +12,11 @@ import {
   templateUrl: './text-button.component.html',
   styleUrls: ['./text-button.component.css'],
 })
-export class TextButtonComponent implements OnInit {
+export class TextButtonComponent {
   @Input() class: string = 'textButton';
   @Input() text: string;
 
   @ViewChild('textButtonIcon') textButtonIcon: ElementRef;
 
   constructor() {}
-
-  ngOnInit(): void {}
 }
