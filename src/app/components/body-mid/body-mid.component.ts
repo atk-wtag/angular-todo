@@ -1,12 +1,5 @@
-import {
-  Component,
-  OnInit,
-  ViewChild,
-  ElementRef,
-  AfterViewChecked,
-} from '@angular/core';
+import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
 import { Router } from '@angular/router';
-import { Todo } from 'src/app/models/todo.model';
 import { AddNewService } from 'src/app/services/addnew/addNew.service';
 import { TodoStoreService } from 'src/app/services/state/todoStore.service';
 import { LoadMoreService } from '../../services/loadmore/load-more.service';
@@ -16,7 +9,7 @@ import { LoadMoreService } from '../../services/loadmore/load-more.service';
   templateUrl: './body-mid.component.html',
   styleUrls: ['./body-mid.component.css'],
 })
-export class BodyMidComponent implements OnInit, AfterViewChecked {
+export class BodyMidComponent implements OnInit {
   newTaskVisible: boolean;
   todosToRender: any;
   currentRoute: string;
@@ -46,20 +39,5 @@ export class BodyMidComponent implements OnInit, AfterViewChecked {
     else if (this.currentRoute === '/incomplete')
       this.todosToRender = this.state.incompleteTodos$;
     else this.todosToRender = this.state.completedTodos$;
-
-    this.todosToRender.subscribe((todos: Todo[]) => {
-      this.loadMoreService.showTill$.subscribe(() => {
-        if (todos.length <= this.to) {
-          this.loadMoreService.showLoadMore.next(false);
-        } else this.loadMoreService.showLoadMore.next(true);
-      });
-    });
-  }
-  ngAfterViewChecked() {
-    // if (!this.todoItem) this.loadMoreService.showLoadMore.next(false);
-    // else this.loadMoreService.showLoadMore.next(true);
-    // if (this.todosToRender._value.length <= this.to)
-    //   this.loadMoreService.showLoadMore.next(false);
-    // else this.loadMoreService.showLoadMore.next(true);
   }
 }

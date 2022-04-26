@@ -1,6 +1,5 @@
 import { Injectable } from '@angular/core';
 import { BehaviorSubject, Observable } from 'rxjs';
-import { TodoStoreService } from '../state/todoStore.service';
 
 @Injectable({
   providedIn: 'root',
@@ -10,10 +9,23 @@ export class LoadMoreService {
   private _showFrom = new BehaviorSubject<number>(0);
   private _showTill = new BehaviorSubject<number>(12);
 
+  private readonly maxIncrement: number = 12;
+
+  public max = new BehaviorSubject<number>(12);
+
   showFrom$: Observable<number> = this._showFrom;
   showTill$: Observable<number> = this._showTill;
 
-  constructor(private _state: TodoStoreService) {}
+  constructor() {
+    this.max.subscribe((value) => {
+      this.showTill$.subscribe(() => {
+        value <= this.showTill
+          ? this.showLoadMore.next(false)
+          : this.showLoadMore.next(true);
+        console.log('to', this.showTill);
+      });
+    });
+  }
 
   get showFrom(): number {
     return this._showFrom.value;
@@ -27,8 +39,14 @@ export class LoadMoreService {
     return this._showTill.value;
   }
 
+  get maxValue() {
+    return this.max.value;
+  }
+
   loadMore() {
-    this._showTill.next(this._showTill.value + 12);
+    this.showTill + this.maxIncrement > this.maxValue
+      ? (this.showTill = this.maxValue)
+      : (this.showTill += this.maxIncrement);
   }
 
   reset() {

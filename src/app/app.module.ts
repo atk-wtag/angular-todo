@@ -16,6 +16,7 @@ import { NewTaskComponent } from './components/new-task/new-task.component';
 import { BodyBottomComponent } from './components/body-bottom/body-bottom.component';
 import { HTTP_INTERCEPTORS, HttpClientModule } from '@angular/common/http';
 import { HttpInterceptorService } from './services/httpInterceptor/http-interceptor.service';
+import { CountPipe } from './pipes/count/count.pipe';
 @NgModule({
   declarations: [
     AppComponent,
@@ -29,6 +30,7 @@ import { HttpInterceptorService } from './services/httpInterceptor/http-intercep
     SearchPipe,
     NewTaskComponent,
     BodyBottomComponent,
+    CountPipe,
   ],
   imports: [
     BrowserModule,
