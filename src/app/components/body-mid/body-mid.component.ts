@@ -1,4 +1,10 @@
-import { Component, OnInit } from '@angular/core';
+import {
+  Component,
+  OnInit,
+  ViewChild,
+  ElementRef,
+  AfterViewChecked,
+} from '@angular/core';
 import { Router } from '@angular/router';
 import { Todo } from 'src/app/models/todo.model';
 import { AddNewService } from 'src/app/services/addnew/addNew.service';
@@ -10,13 +16,15 @@ import { LoadMoreService } from '../../services/loadmore/load-more.service';
   templateUrl: './body-mid.component.html',
   styleUrls: ['./body-mid.component.css'],
 })
-export class BodyMidComponent implements OnInit {
+export class BodyMidComponent implements OnInit, AfterViewChecked {
   newTaskVisible: boolean;
   todosToRender: any;
   currentRoute: string;
   todosToShow: any;
   from: number;
   to: number;
+
+  @ViewChild('todoItem') todoItem: ElementRef;
 
   constructor(
     public state: TodoStoreService,
@@ -40,8 +48,18 @@ export class BodyMidComponent implements OnInit {
     else this.todosToRender = this.state.completedTodos$;
 
     this.todosToRender.subscribe((todos: Todo[]) => {
-      if (todos.length === 0) this.loadMoreService.showLoadMore.next(false);
-      else this.loadMoreService.showLoadMore.next(true);
+      this.loadMoreService.showTill$.subscribe(() => {
+        if (todos.length <= this.to) {
+          this.loadMoreService.showLoadMore.next(false);
+        } else this.loadMoreService.showLoadMore.next(true);
+      });
     });
+  }
+  ngAfterViewChecked() {
+    // if (!this.todoItem) this.loadMoreService.showLoadMore.next(false);
+    // else this.loadMoreService.showLoadMore.next(true);
+    // if (this.todosToRender._value.length <= this.to)
+    //   this.loadMoreService.showLoadMore.next(false);
+    // else this.loadMoreService.showLoadMore.next(true);
   }
 }
