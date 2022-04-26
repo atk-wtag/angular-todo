@@ -1,3 +1,4 @@
+// import { animate, style, transition, trigger } from '@angular/animations';
 import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
 import { Router } from '@angular/router';
 import { AddNewService } from 'src/app/services/addnew/addNew.service';
@@ -8,6 +9,17 @@ import { LoadMoreService } from '../../services/loadmore/load-more.service';
   selector: 'app-body-mid',
   templateUrl: './body-mid.component.html',
   styleUrls: ['./body-mid.component.css'],
+  // animations: [
+  //   trigger('fade', [
+  //     transition('void => active', [
+  //       style({ opacity: 0 }),
+  //       animate(500, style({ opacity: 1 })),
+  //     ]),
+  //     transition('* => void', [
+  //       animate(500, style({ opacity: 0, visibility: 'hidden' })),
+  //     ]),
+  //   ]),
+  // ],
 })
 export class BodyMidComponent implements OnInit {
   newTaskVisible: boolean;
