@@ -47,3 +47,39 @@ textarea {
   border-radius: 5px;
   max-height: 73px;
 }
+
+.disable {
+  opacity: 0.6;
+  pointer-events: none;
+  filter: blur(1px);
+}
+
+.body-spinner {
+  position: absolute;
+  top: 47%;
+  left: 48%;
+}
+
+.body-spinner-svg {
+  animation: rotation 1s infinite linear;
+  position: fixed;
+  z-index: 1;
+  opacity: 1 !important;
+}
+@keyframes rotation {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+@-webkit-keyframes rotation {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}

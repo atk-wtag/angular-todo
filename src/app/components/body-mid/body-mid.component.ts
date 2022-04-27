@@ -9,17 +9,6 @@ import { LoadMoreService } from '../../services/loadmore/load-more.service';
   selector: 'app-body-mid',
   templateUrl: './body-mid.component.html',
   styleUrls: ['./body-mid.component.css'],
-  // animations: [
-  //   trigger('fade', [
-  //     transition('void => active', [
-  //       style({ opacity: 0 }),
-  //       animate(500, style({ opacity: 1 })),
-  //     ]),
-  //     transition('* => void', [
-  //       animate(500, style({ opacity: 0, visibility: 'hidden' })),
-  //     ]),
-  //   ]),
-  // ],
 })
 export class BodyMidComponent implements OnInit {
   newTaskVisible: boolean;
@@ -28,6 +17,7 @@ export class BodyMidComponent implements OnInit {
   todosToShow: any;
   from: number;
   to: number;
+  spinner: boolean = false;
 
   @ViewChild('todoItem') todoItem: ElementRef;
 
@@ -47,6 +37,13 @@ export class BodyMidComponent implements OnInit {
     });
   }
   ngOnInit() {
+    // this.spinner = !this.spinner;
+    // document.body.classList.add('disable');
+    // setTimeout(() => {
+    //   this.spinner = !this.spinner;
+    //   document.body.classList.remove('disable');
+    // }, 300);
+
     if (this.currentRoute === '/all') this.todosToRender = this.state.todos$;
     else if (this.currentRoute === '/incomplete')
       this.todosToRender = this.state.incompleteTodos$;

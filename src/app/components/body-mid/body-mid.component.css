@@ -1,3 +1,15 @@
+.body-spinner {
+  position: absolute;
+  top: 47%;
+  left: 48%;
+}
+
+.body-spinner-svg {
+  animation: rotation 1s infinite linear;
+  position: fixed;
+  z-index: 1;
+  opacity: 1 !important;
+}
 .body-mid {
   margin-top: 4vh;
   display: grid;
