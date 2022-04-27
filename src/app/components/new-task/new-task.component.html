@@ -1,17 +1,8 @@
 <div class="add-todo">
-  <div class="add-todo-top-div">
-    <textarea
-      #newTextArea
-      name="editTextarea"
-      rows="4"
-      maxlength="50"
-      (keydown)="onKeyDown($event)"
-    ></textarea>
-  </div>
-  <div class="add-todo-mid-div" *ngIf="false">
-    <object class="todo-spinner-object">
+  <div class="add-todo-spinner" *ngIf="this.spinner">
+    <object class="add-todo-spinner-object">
       <svg
-        class="cardSpinner"
+        class="add-todo-spinner-object-svg"
         width="40"
         height="40"
         viewBox="0 0 51 51"
@@ -26,15 +17,27 @@
       </svg>
     </object>
   </div>
-  <div class="add-todo-bottom-div">
-    <div class="add-todo-bottom-buttons-div">
-      <app-text-button [text]="'Add'" (click)="addTask()"></app-text-button>
+  <div class="add-todo-main" #addTodoMain>
+    <div class="add-todo-main-top-div">
+      <textarea
+        #newTextArea
+        name="editTextarea"
+        rows="4"
+        maxlength="50"
+        (keydown)="onKeyDown($event)"
+      ></textarea>
+    </div>
 
-      <app-icon-button
-        [toolTipText]="'Delete'"
-        [icon]="getDeleteIcon()"
-        (click)="deleteCard()"
-      ></app-icon-button>
+    <div class="add-todo-main-bottom-div">
+      <div class="add-todo-bottom-buttons-div">
+        <app-text-button [text]="'Add'" (click)="addTask()"></app-text-button>
+
+        <app-icon-button
+          [toolTipText]="'Delete'"
+          [icon]="getDeleteIcon()"
+          (click)="deleteCard()"
+        ></app-icon-button>
+      </div>
     </div>
   </div>
 </div>

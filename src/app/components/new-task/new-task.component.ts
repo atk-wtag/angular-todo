@@ -1,10 +1,4 @@
-import {
-  AfterViewInit,
-  Component,
-  ElementRef,
-  OnInit,
-  ViewChild,
-} from '@angular/core';
+import { AfterViewInit, Component, ElementRef, ViewChild } from '@angular/core';
 import { Router } from '@angular/router';
 import { TodoStoreService } from 'src/app/services/state/todoStore.service';
 import { AddNewService } from '../../services/addnew/addNew.service';
@@ -16,7 +10,9 @@ import { SanitizeService } from '../../services/sanitization/sanitize.service';
   styleUrls: ['./new-task.component.css'],
 })
 export class NewTaskComponent implements AfterViewInit {
+  spinner: boolean = false;
   @ViewChild('newTextArea') textArea: ElementRef;
+  @ViewChild('addTodoMain') addTodoMain: ElementRef;
 
   constructor(
     private _addNewService: AddNewService,
@@ -57,12 +53,15 @@ export class NewTaskComponent implements AfterViewInit {
       this.textArea.nativeElement.value
     );
     if (value) {
-      this.deleteCard();
+      this.showSpinner();
       this._state.addTodo(value);
-      this._router.url === '/complete'
-        ? this._router.navigateByUrl('/all')
-        : null;
+      if (this._router.url === '/complete') {
+        setTimeout(() => {
+          this._router.navigateByUrl('/all');
+        }, 300);
+      }
     }
+
     return;
   }
 
@@ -71,5 +70,14 @@ export class NewTaskComponent implements AfterViewInit {
       this.addTask();
     }
     return;
+  }
+  showSpinner() {
+    this.addTodoMain.nativeElement.classList.add('disable');
+    this.spinner = !this.spinner;
+    setTimeout(() => {
+      this.spinner = !this.spinner;
+      this.addTodoMain.nativeElement.classList.remove('disable');
+      this.deleteCard();
+    }, 300);
   }
 }

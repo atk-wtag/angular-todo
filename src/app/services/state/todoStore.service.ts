@@ -39,8 +39,10 @@ export class TodoStoreService {
       description,
       createdAt: this.getCurrentDate(),
     });
-    this._todos.next([newTodo, ...this.todos]);
     this._httpService.addTodo(newTodo).subscribe();
+    setTimeout(() => {
+      this._todos.next([newTodo, ...this.todos]);
+    }, 300);
   }
 
   removeTodo(value: Todo) {
