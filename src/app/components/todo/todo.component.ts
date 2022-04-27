@@ -99,7 +99,7 @@ export class TodoComponent implements OnInit, AfterViewChecked {
 
   deleteTodo(todo: Todo) {
     this.showSpinner();
-    console.log(47);
+    if (this.enableEdit) this.enableEdit = !this.enableEdit;
     this._state.removeTodo(todo);
   }
 

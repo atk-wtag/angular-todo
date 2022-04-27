@@ -11,7 +11,9 @@
   flex-direction: column;
   justify-content: space-between;
   word-wrap: break-word;
+  position: relative;
 }
+
 .todo-main {
   display: flex;
   flex-direction: column;
@@ -65,16 +67,14 @@ app-icon-button {
 .todo-spinner {
   position: absolute;
   align-self: center;
+  top: 38%;
 }
 
 .disable {
   pointer-events: none;
   opacity: 0.6;
 }
-.todo-spinner-div-object {
-  position: relative;
-  top: 40%;
-}
+
 .todo-spinner-div-object-svg {
   animation: rotation 1000ms infinite linear;
   z-index: 2;
