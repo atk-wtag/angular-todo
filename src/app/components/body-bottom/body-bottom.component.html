@@ -5,4 +5,10 @@
     [class]="'loadMoreButton'"
     (click)="loadMore()"
   ></app-text-button>
+  <app-text-button
+    *ngIf="this.showLess"
+    [text]="'Show Less'"
+    [class]="'loadMoreButton'"
+    (click)="showLessTodos()"
+  ></app-text-button>
 </div>

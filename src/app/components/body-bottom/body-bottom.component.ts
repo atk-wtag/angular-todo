@@ -9,6 +9,7 @@ import { LoadMoreService } from '../../services/loadmore/load-more.service';
 })
 export class BodyBottomComponent {
   showMore: boolean;
+  showLess: boolean;
   allCount: number;
   completedCount: number;
   incompleteCount: number;
@@ -20,6 +21,9 @@ export class BodyBottomComponent {
     this.loadMoreService.showLoadMore.subscribe((value) => {
       this.showMore = value;
     });
+    this.loadMoreService.showLoadLess.subscribe((value) => {
+      this.showLess = value;
+    });
   }
 
   loadMore() {
@@ -30,6 +34,16 @@ export class BodyBottomComponent {
       document.getElementById('mainBody')?.classList.remove('disable');
 
       this.loadMoreService.loadMore();
+    }, 300);
+  }
+
+  showLessTodos() {
+    this._bodySpinnerService.toggleSpinner();
+    document.getElementById('mainBody')?.classList.add('disable');
+    setTimeout(() => {
+      this._bodySpinnerService.toggleSpinner();
+      document.getElementById('mainBody')?.classList.remove('disable');
+      this.loadMoreService.showLess();
     }, 300);
   }
 }
