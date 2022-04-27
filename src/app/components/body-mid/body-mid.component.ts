@@ -37,13 +37,6 @@ export class BodyMidComponent implements OnInit {
     });
   }
   ngOnInit() {
-    // this.spinner = !this.spinner;
-    // document.body.classList.add('disable');
-    // setTimeout(() => {
-    //   this.spinner = !this.spinner;
-    //   document.body.classList.remove('disable');
-    // }, 300);
-
     if (this.currentRoute === '/all') this.todosToRender = this.state.todos$;
     else if (this.currentRoute === '/incomplete')
       this.todosToRender = this.state.incompleteTodos$;
