@@ -29,7 +29,7 @@ export class CountPipe implements PipeTransform, OnDestroy {
 
     this._showTillSubscription = this._loadMoreService.showTill$.subscribe(
       (to) => {
-        if (to >= length && to > 12 && length > 12) {
+        if (to > 12 && length > 12) {
           this._loadMoreService.showLoadLess.next(true);
         } else {
           this._loadMoreService.showLoadLess.next(false);
@@ -43,3 +43,4 @@ export class CountPipe implements PipeTransform, OnDestroy {
     if (this._showTillSubscription) this._showTillSubscription.unsubscribe();
   }
 }
+// to >= length &&

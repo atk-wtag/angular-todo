@@ -42,6 +42,7 @@
 }
 
 .loadMoreButton {
+  margin: 20px;
   background: rgba(50, 57, 75, 0.95);
   border: none;
   border-radius: 5px;
