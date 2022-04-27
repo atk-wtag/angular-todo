@@ -7,6 +7,7 @@ import {
   ViewChild,
 } from '@angular/core';
 import { Event, NavigationEnd, NavigationStart, Router } from '@angular/router';
+import { BodySpinnerService } from './services/bodySpinner/body-spinner.service';
 import { LoadMoreService } from './services/loadmore/load-more.service';
 import { NoTodosService } from './services/NoTodos/no-todos.service';
 import { TodoStoreService } from './services/state/todoStore.service';
@@ -31,8 +32,13 @@ export class AppComponent implements OnInit, DoCheck {
     private _loadMoreService: LoadMoreService,
     private _router: Router,
     private _noTodosService: NoTodosService,
-    private _changeDetector: ChangeDetectorRef
-  ) {}
+    private _changeDetector: ChangeDetectorRef,
+    private _bodySpinnerService: BodySpinnerService
+  ) {
+    this._bodySpinnerService.spinner.subscribe(
+      (value) => (this.spinner = value)
+    );
+  }
 
   ngOnInit() {
     this._noTodosService.noTodos.subscribe((value) => {
@@ -44,12 +50,12 @@ export class AppComponent implements OnInit, DoCheck {
     this._router.events.subscribe((event: Event) => {
       if (this.mainBody) {
         if (event instanceof NavigationStart) {
-          this.spinner = !this.spinner;
+          this._bodySpinnerService.toggleSpinner();
           this.mainBody.nativeElement.classList.add('disable');
         }
         if (event instanceof NavigationEnd) {
           setTimeout(() => {
-            this.spinner = !this.spinner;
+            this._bodySpinnerService.toggleSpinner();
             this.mainBody.nativeElement.classList.remove('disable');
           }, 300);
         }
@@ -58,7 +64,7 @@ export class AppComponent implements OnInit, DoCheck {
 
     setTimeout(() => {
       this.showSplash = !this.showSplash;
-    }, 1500);
+    }, 1000);
   }
   ngDoCheck() {
     this._changeDetector.detectChanges();

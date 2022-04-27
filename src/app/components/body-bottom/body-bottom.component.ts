@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { BodySpinnerService } from 'src/app/services/bodySpinner/body-spinner.service';
 import { LoadMoreService } from '../../services/loadmore/load-more.service';
 
 @Component({
@@ -12,13 +13,23 @@ export class BodyBottomComponent {
   completedCount: number;
   incompleteCount: number;
 
-  constructor(public loadMoreService: LoadMoreService) {
+  constructor(
+    public loadMoreService: LoadMoreService,
+    private _bodySpinnerService: BodySpinnerService
+  ) {
     this.loadMoreService.showLoadMore.subscribe((value) => {
       this.showMore = value;
     });
   }
 
   loadMore() {
-    this.loadMoreService.loadMore();
+    this._bodySpinnerService.toggleSpinner();
+    document.getElementById('mainBody')?.classList.add('disable');
+    setTimeout(() => {
+      this._bodySpinnerService.toggleSpinner();
+      document.getElementById('mainBody')?.classList.remove('disable');
+
+      this.loadMoreService.loadMore();
+    }, 300);
   }
 }
