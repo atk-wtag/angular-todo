@@ -53,6 +53,7 @@ export class NewTaskComponent implements AfterViewInit {
       this.textArea.nativeElement.value
     );
     if (value) {
+      this.textArea.nativeElement.disabled = true;
       this.showSpinner();
       this._state.addTodo(value);
       if (this._router.url === '/complete') {
@@ -71,13 +72,14 @@ export class NewTaskComponent implements AfterViewInit {
     }
     return;
   }
+
   showSpinner() {
     this.addTodoMain.nativeElement.classList.add('disable');
     this.spinner = !this.spinner;
     setTimeout(() => {
+      this.deleteCard();
       this.spinner = !this.spinner;
       this.addTodoMain.nativeElement.classList.remove('disable');
-      this.deleteCard();
     }, 300);
   }
 }

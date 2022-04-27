@@ -64,7 +64,7 @@ export class AppComponent implements OnInit, DoCheck {
 
     setTimeout(() => {
       this.showSplash = !this.showSplash;
-    }, 1000);
+    }, 1500);
   }
   ngDoCheck() {
     this._changeDetector.detectChanges();
