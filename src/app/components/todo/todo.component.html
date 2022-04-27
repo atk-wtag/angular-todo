@@ -1,31 +1,10 @@
 <div class="todo">
-  <div class="todo-top-div">
-    <ng-template [ngIf]="!enableEdit">
-      <label
-        class="md-txt"
-        [ngClass]="todoObject.completed ? 'completed' : ''"
-        >{{ todoObject.description }}</label
-      >
-      <p class="sm-txt">created on: {{ todoObject.createdAt | date }}</p>
-    </ng-template>
-
-    <ng-template [ngIf]="enableEdit">
-      <textarea
-        #editTextarea
-        name="editTextarea"
-        rows="4"
-        autofocus
-        (keydown)="onKeyDown($event)"
-        [(ngModel)]="this.editValue"
-      ></textarea>
-    </ng-template>
-  </div>
-  <div class="todo-mid-div" *ngIf="false">
-    <object class="todo-spinner-object">
+  <div class="todo-spinner" *ngIf="this.spinner">
+    <object class="todo-spinner-div-object">
       <svg
-        class="cardSpinner"
-        width="40"
-        height="40"
+        class="todo-spinner-div-object-svg"
+        width="43"
+        height="43"
         viewBox="0 0 51 51"
         fill="none"
         xmlns="http://www.w3.org/2000/svg"
@@ -38,38 +17,63 @@
       </svg>
     </object>
   </div>
-  <div class="todo-bottom-div">
-    <div class="todo-bottom-buttons-div">
-      <ng-template [ngIf]="!todoObject.completed">
-        <app-text-button
-          *ngIf="enableEdit"
-          [text]="'Save'"
-          (click)="updateTodo(todoObject)"
-        ></app-text-button>
-        <app-icon-button
-          [toolTipText]="'Mark as Done'"
-          [icon]="getMarkasDoneIcon()"
-          (click)="markAsDone(todoObject)"
-        ></app-icon-button>
-        <app-icon-button
-          *ngIf="!enableEdit"
-          [toolTipText]="'Edit'"
-          [icon]="getEditIcon()"
-          (click)="enableEdit = true"
-        ></app-icon-button>
+  <div class="todo-main" #todoMain>
+    <div class="todo-top-div">
+      <ng-template [ngIf]="!enableEdit">
+        <label
+          class="md-txt"
+          [ngClass]="todoObject.completed ? 'completed' : ''"
+          >{{ todoObject.description }}</label
+        >
+        <p class="sm-txt">created on: {{ todoObject.createdAt | date }}</p>
       </ng-template>
 
-      <app-icon-button
-        [toolTipText]="'Delete'"
-        [icon]="getDeleteIcon()"
-        (click)="deleteTodo(todoObject)"
-      ></app-icon-button>
+      <ng-template [ngIf]="enableEdit">
+        <textarea
+          #editTextarea
+          name="editTextarea"
+          rows="4"
+          autofocus
+          (keydown)="onKeyDown($event)"
+          [(ngModel)]="this.editValue"
+        ></textarea>
+      </ng-template>
     </div>
-    <div class="todo-bottom-completed-div" *ngIf="todoObject.completed">
-      <label class="completed-text"
-        >Completed in
-        {{ compareDates(todoObject.completedAt, todoObject.createdAt) }}</label
-      >
+    <div class="todo-bottom-div">
+      <div class="todo-bottom-buttons-div">
+        <ng-template [ngIf]="!todoObject.completed">
+          <app-text-button
+            *ngIf="enableEdit"
+            [text]="'Save'"
+            (click)="updateTodo(todoObject)"
+          ></app-text-button>
+          <app-icon-button
+            [toolTipText]="'Mark as Done'"
+            [icon]="getMarkasDoneIcon()"
+            (click)="markAsDone(todoObject)"
+          ></app-icon-button>
+          <app-icon-button
+            *ngIf="!enableEdit"
+            [toolTipText]="'Edit'"
+            [icon]="getEditIcon()"
+            (click)="enableEdit = true"
+          ></app-icon-button>
+        </ng-template>
+
+        <app-icon-button
+          [toolTipText]="'Delete'"
+          [icon]="getDeleteIcon()"
+          (click)="deleteTodo(todoObject)"
+        ></app-icon-button>
+      </div>
+      <div class="todo-bottom-completed-div" *ngIf="todoObject.completed">
+        <label class="completed-text"
+          >Completed in
+          {{
+            compareDates(todoObject.completedAt, todoObject.createdAt)
+          }}</label
+        >
+      </div>
     </div>
   </div>
 </div>

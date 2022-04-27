@@ -45,4 +45,5 @@ textarea {
   border: 3px solid #d1d8ff;
   box-sizing: border-box;
   border-radius: 5px;
+  max-height: 73px;
 }

@@ -1,7 +1,7 @@
 .todo {
   min-width: 285px;
   overflow: hidden;
-  min-height: 155px;
+  min-height: 160px;
   background: #ffffff;
   border: 1px solid #dde2ff;
   box-sizing: border-box;
@@ -12,7 +12,12 @@
   justify-content: space-between;
   word-wrap: break-word;
 }
-
+.todo-main {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  gap: 15px;
+}
 @media only screen and (max-width: 400px) {
   .todo {
     min-width: none;
@@ -55,4 +60,40 @@ app-icon-button {
 
 .todo-bottom-buttons-div {
   display: flex;
+}
+
+.todo-spinner {
+  position: absolute;
+  align-self: center;
+}
+
+.disable {
+  pointer-events: none;
+  opacity: 0.6;
+}
+.todo-spinner-div-object {
+  position: relative;
+  top: 40%;
+}
+.todo-spinner-div-object-svg {
+  animation: rotation 1000ms infinite linear;
+  z-index: 2;
+}
+
+@keyframes rotation {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+@-webkit-keyframes rotation {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
 }

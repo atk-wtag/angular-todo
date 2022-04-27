@@ -2,10 +2,8 @@ import {
   AfterViewChecked,
   Component,
   ElementRef,
-  EventEmitter,
   Input,
   OnInit,
-  Output,
   ViewChild,
 } from '@angular/core';
 import { Router } from '@angular/router';
@@ -21,11 +19,12 @@ import { SanitizeService } from '../../services/sanitization/sanitize.service';
 export class TodoComponent implements OnInit, AfterViewChecked {
   editValue: string;
   enableEdit: boolean = false;
+  spinner: boolean = false;
+
   @Input('todo') todoObject: any;
 
   @ViewChild('editTextarea') textArea: ElementRef;
-
-  @Output('completed') completedEvent = new EventEmitter();
+  @ViewChild('todoMain') todoMain: ElementRef;
 
   constructor(
     private _state: TodoStoreService,
@@ -38,7 +37,7 @@ export class TodoComponent implements OnInit, AfterViewChecked {
   }
 
   ngAfterViewChecked(): void {
-    this.textArea ? this.textArea.nativeElement.focus() : null;
+    this.textArea ? this.textArea.nativeElement.focus() : undefined;
   }
 
   getMarkasDoneIcon() {
@@ -99,25 +98,25 @@ export class TodoComponent implements OnInit, AfterViewChecked {
   }
 
   deleteTodo(todo: Todo) {
+    this.showSpinner();
+    console.log(47);
     this._state.removeTodo(todo);
   }
 
   markAsDone(todo: Todo) {
+    this.showSpinner();
     this._state.setCompleted(todo);
     if (this.enableEdit) {
       todo.description !== this.textArea.nativeElement.value
         ? this.updateTodo(todo)
         : (this.enableEdit = !this.enableEdit);
     }
-
-    if (this._router.url === '/incomplete') {
-      this.completedEvent.emit(this);
-    }
   }
 
   updateTodo(todo: Todo) {
     const value = this._sanitizationService.sanitizeString(this.editValue);
     if (value) {
+      this.showSpinner();
       this.enableEdit = !this.enableEdit;
       this._state.updateTodo(todo, value);
     }
@@ -127,5 +126,14 @@ export class TodoComponent implements OnInit, AfterViewChecked {
     if (e.key === 'Enter') {
       this.updateTodo(this.todoObject);
     }
+  }
+
+  showSpinner() {
+    this.todoMain.nativeElement.classList.add('disable');
+    this.spinner = !this.spinner;
+    setTimeout(() => {
+      this.spinner = !this.spinner;
+      this.todoMain.nativeElement.classList.remove('disable');
+    }, 300);
   }
 }
