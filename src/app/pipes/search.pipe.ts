@@ -1,7 +1,6 @@
 import { Pipe, PipeTransform } from '@angular/core';
 import { Todo } from '../models/todo.model';
 import { LoadMoreService } from '../services/loadmore/load-more.service';
-import { TodoStoreService } from '../services/state/todoStore.service';
 
 @Pipe({
   name: 'search',
@@ -10,10 +9,7 @@ export class SearchPipe implements PipeTransform {
   currentLength: number;
   previousLength: number;
 
-  constructor(
-    private _loadMoreService: LoadMoreService,
-    private _state: TodoStoreService
-  ) {}
+  constructor(private _loadMoreService: LoadMoreService) {}
 
   transform(value: any, args: string): any {
     this.currentLength = args.length;

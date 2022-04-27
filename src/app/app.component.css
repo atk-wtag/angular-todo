@@ -1,0 +1,10 @@
+.body-no-todos {
+  position: absolute;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding-top: 20vh;
+  height: auto;
+  width: 100vw;
+}
