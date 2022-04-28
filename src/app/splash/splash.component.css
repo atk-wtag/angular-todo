@@ -8,9 +8,12 @@
   align-items: center;
 }
 
+
 @media only screen and (max-width: 600px) {
   #splash svg {
     width: 60vw;
     height: auto;
   }
 }
+
+
