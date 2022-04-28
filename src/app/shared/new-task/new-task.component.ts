@@ -1,8 +1,8 @@
-import { AfterViewInit, Component, ElementRef, ViewChild } from '@angular/core';
-import { Router } from '@angular/router';
-import { TodoStoreService } from 'src/app/services/state/todoStore.service';
-import { AddNewService } from '../../services/addnew/addNew.service';
-import { SanitizeService } from '../../services/sanitization/sanitize.service';
+import {AfterViewInit, Component, ElementRef, ViewChild} from '@angular/core';
+import {Router} from '@angular/router';
+import {TodoStoreService} from 'src/app/core/services/state/todoStore.service';
+import {AddNewService} from '../../core/services/addnew/addNew.service';
+import {SanitizeService} from '../../core/services/sanitization/sanitize.service';
 
 @Component({
   selector: 'app-new-task',
@@ -19,7 +19,8 @@ export class NewTaskComponent implements AfterViewInit {
     private _state: TodoStoreService,
     private _sanitizationService: SanitizeService,
     private _router: Router
-  ) {}
+  ) {
+  }
 
   getDeleteIcon() {
     return `<svg

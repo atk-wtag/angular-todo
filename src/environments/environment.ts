@@ -18,38 +18,4 @@ export const environment = {
  * on performance if an error is thrown.
  */
 // import 'zone.js/plugins/zone-error';  // Included with Angular CLI.
-/*
-**GET Completed**
-https://vpmtafvtfkzjqayxfuhp.supabase.co/rest/v1/todos?completed=eq.true
 
-**GET Incomplete**
-https://vpmtafvtfkzjqayxfuhp.supabase.co/rest/v1/todos?completed=eq.false
-
-**GET All**
-https://vpmtafvtfkzjqayxfuhp.supabase.co/rest/v1/todos
-
-
-**ADD**
-curl -X POST 'https://vpmtafvtfkzjqayxfuhp.supabase.co/rest/v1/todos' \
--H "apikey: SUPABASE_KEY" \
--H "Authorization: Bearer SUPABASE_KEY" \
--H "Content-Type: application/json" \
--H "Prefer: return=representation" \
--d '{ "some_column": "someValue", "other_column": "otherValue" }'
-
-
-**UPDATE**
-curl -X PATCH 'https://vpmtafvtfkzjqayxfuhp.supabase.co/rest/v1/todos?some_column=eq.someValue' \
--H "apikey: SUPABASE_KEY" \
--H "Authorization: Bearer SUPABASE_KEY" \
--H "Content-Type: application/json" \
--H "Prefer: return=representation" \
--d '{ "other_column": "otherValue" }'
-
-
-**DELETE**
-curl -X DELETE 'https://vpmtafvtfkzjqayxfuhp.supabase.co/rest/v1/todos?some_column=eq.someValue' \
--H "apikey: SUPABASE_KEY" \
--H "Authorization: Bearer SUPABASE_KEY"
-
-*/

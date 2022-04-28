@@ -1,17 +1,9 @@
-import {
-  AfterViewChecked,
-  ChangeDetectorRef,
-  Component,
-  DoCheck,
-  ElementRef,
-  OnInit,
-  ViewChild,
-} from '@angular/core';
-import { Event, NavigationEnd, NavigationStart, Router } from '@angular/router';
-import { BodySpinnerService } from './services/bodySpinner/body-spinner.service';
-import { LoadMoreService } from './services/loadmore/load-more.service';
-import { NoTodosService } from './services/NoTodos/no-todos.service';
-import { TodoStoreService } from './services/state/todoStore.service';
+import {AfterViewChecked, ChangeDetectorRef, Component, DoCheck, ElementRef, OnInit, ViewChild,} from '@angular/core';
+import {Event, NavigationEnd, NavigationStart, Router} from '@angular/router';
+import {BodySpinnerService} from './core/services/bodySpinner/body-spinner.service';
+import {LoadMoreService} from './core/services/loadmore/load-more.service';
+import {NoTodosService} from './core/services/NoTodos/no-todos.service';
+import {TodoStoreService} from './core/services/state/todoStore.service';
 
 @Component({
   selector: 'app-root',
@@ -73,9 +65,11 @@ export class AppComponent implements OnInit, DoCheck, AfterViewChecked {
       this.showSplash = !this.showSplash;
     }, 1500);
   }
+
   ngDoCheck() {
     this._changeDetector.detectChanges();
   }
+
   ngAfterViewChecked() {
     const filterButtons = document.getElementById('filterButtonDiv');
     const searchButton = document.getElementById('searchButton');

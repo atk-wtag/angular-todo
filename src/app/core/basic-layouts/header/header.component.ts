@@ -1,12 +1,6 @@
-import {
-  animate,
-  state,
-  style,
-  transition,
-  trigger,
-} from '@angular/animations';
-import { Component } from '@angular/core';
-import { HttpService } from 'src/app/services/http/http.service';
+import {animate, state, style, transition, trigger,} from '@angular/animations';
+import {Component} from '@angular/core';
+import {HttpService} from 'src/app/core/services/http/http.service';
 
 @Component({
   selector: 'app-header',
@@ -34,5 +28,6 @@ import { HttpService } from 'src/app/services/http/http.service';
   ],
 })
 export class HeaderComponent {
-  constructor(public httpService: HttpService) {}
+  constructor(public httpService: HttpService) {
+  }
 }

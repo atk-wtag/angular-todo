@@ -69,8 +69,9 @@ textarea {
   animation: rotation 1s infinite linear;
   position: fixed;
   z-index: 1;
-  opacity: 1 !important;
+  opacity: 1
 }
+
 @keyframes rotation {
   0% {
     transform: rotate(0deg);

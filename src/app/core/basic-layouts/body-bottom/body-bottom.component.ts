@@ -1,6 +1,6 @@
-import { Component } from '@angular/core';
-import { BodySpinnerService } from 'src/app/services/bodySpinner/body-spinner.service';
-import { LoadMoreService } from '../../services/loadmore/load-more.service';
+import {Component} from '@angular/core';
+import {BodySpinnerService} from 'src/app/core/services/bodySpinner/body-spinner.service';
+import {LoadMoreService} from '../../services/loadmore/load-more.service';
 
 @Component({
   selector: 'app-body-bottom',
