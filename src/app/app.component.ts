@@ -19,7 +19,7 @@ import { TodoStoreService } from './services/state/todoStore.service';
   styleUrls: ['./app.component.css'],
 })
 export class AppComponent implements OnInit, DoCheck, AfterViewChecked {
-  title = 'Todo App';
+  title = 'Todo';
   showSplash: boolean = true;
   todos: any;
   spinner: boolean = false;

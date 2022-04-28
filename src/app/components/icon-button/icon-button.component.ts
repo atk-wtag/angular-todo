@@ -3,7 +3,6 @@ import {
   Component,
   ElementRef,
   Input,
-  OnInit,
   ViewChild,
 } from '@angular/core';
 
@@ -18,14 +17,13 @@ export class IconButtonComponent implements AfterViewInit {
   @Input() toolTipText: string;
   @Input() icon: string;
 
-  @ViewChild('iconButtonVar') iconButton: ElementRef;
-  @ViewChild('tooltipVar') tooltip: ElementRef;
+  @ViewChild('iconButtonVar') iconButton!: ElementRef;
+  @ViewChild('tooltipVar') tooltip!: ElementRef;
 
   constructor() {}
 
   ngAfterViewInit() {
     this.iconButton.nativeElement.innerHTML = this.icon;
-    this.tooltip.nativeElement.innerText = this.toolTipText;
   }
 
   toggleTooltipVisibility(className: string) {

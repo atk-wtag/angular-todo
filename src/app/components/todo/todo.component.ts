@@ -6,7 +6,6 @@ import {
   OnInit,
   ViewChild,
 } from '@angular/core';
-import { Router } from '@angular/router';
 import { TodoStoreService } from 'src/app/services/state/todoStore.service';
 import { Todo } from '../../models/todo.model';
 import { SanitizeService } from '../../services/sanitization/sanitize.service';
@@ -28,12 +27,11 @@ export class TodoComponent implements OnInit, AfterViewChecked {
 
   constructor(
     private _state: TodoStoreService,
-    private _router: Router,
     private _sanitizationService: SanitizeService
   ) {}
 
   ngOnInit(): void {
-    this.editValue = this.todoObject.description;
+    // this.editValue = this.todoObject.description;
   }
 
   ngAfterViewChecked(): void {
@@ -41,7 +39,7 @@ export class TodoComponent implements OnInit, AfterViewChecked {
   }
 
   getMarkasDoneIcon() {
-    return `<svg width="26" height="26" viewBox="0 0 26 26" fill="none" xmlns="http://www.w3.org/2000/svg">
+    return `<svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
     <path d="M20.285 0L9 11.567L3.714 6.556L0 10.272L9 19L24 3.715L20.285 0Z" fill="#BBBDD0"></path>
   </svg>`;
   }

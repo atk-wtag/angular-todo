@@ -3,7 +3,6 @@ import { Subscription } from 'rxjs/internal/Subscription';
 import { Todo } from 'src/app/models/todo.model';
 import { NoTodosService } from 'src/app/services/NoTodos/no-todos.service';
 import { LoadMoreService } from '../../services/loadmore/load-more.service';
-import { TodoStoreService } from '../../services/state/todoStore.service';
 
 @Pipe({
   name: 'count',
@@ -14,8 +13,7 @@ export class CountPipe implements PipeTransform, OnDestroy {
 
   constructor(
     private _loadMoreService: LoadMoreService,
-    private _noTodosService: NoTodosService,
-    private _state: TodoStoreService
+    private _noTodosService: NoTodosService
   ) {}
 
   transform(value: Todo[]): Todo[] {

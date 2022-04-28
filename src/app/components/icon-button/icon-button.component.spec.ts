@@ -1,5 +1,4 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
-
 import { IconButtonComponent } from './icon-button.component';
 
 describe('IconButtonComponent', () => {
@@ -8,9 +7,8 @@ describe('IconButtonComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ IconButtonComponent ]
-    })
-    .compileComponents();
+      declarations: [IconButtonComponent],
+    }).compileComponents();
   });
 
   beforeEach(() => {
@@ -20,6 +18,7 @@ describe('IconButtonComponent', () => {
   });
 
   it('should create', () => {
+    const component = fixture.componentInstance;
     expect(component).toBeTruthy();
   });
 });

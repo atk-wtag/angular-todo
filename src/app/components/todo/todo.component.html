@@ -17,7 +17,7 @@
       </svg>
     </object>
   </div>
-  <div class="todo-main" #todoMain>
+  <div class="todo-main" #todoMain *ngIf="this.todoObject">
     <div class="todo-top-div">
       <ng-template [ngIf]="!enableEdit">
         <label
