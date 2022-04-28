@@ -1,0 +1,76 @@
+.todo {
+  min-width: 285px;
+  overflow: hidden;
+  min-height: 160px;
+  background: #ffffff;
+  border: 1px solid #dde2ff;
+  box-sizing: border-box;
+  border-radius: 5px;
+  padding: 15px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  word-wrap: break-word;
+  position: relative;
+}
+
+.todo-main {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  gap: 15px;
+}
+@media only screen and (max-width: 400px) {
+  .todo {
+    min-width: none;
+    max-width: auto;
+    margin-right: 9vw;
+  }
+}
+
+app-icon-button {
+  margin: 0.2rem;
+}
+
+.completed {
+  text-decoration: line-through;
+  color: rgb(11, 195, 117);
+}
+
+.todo-bottom-div {
+  display: flex;
+  justify-content: space-between;
+}
+
+.todo-bottom-completed-div {
+  position: relative;
+  display: flex;
+  background: #7a8dfd;
+  border-radius: 5px;
+  text-align: center;
+  align-items: center;
+  padding: 8px;
+  max-height: 15px;
+}
+
+.completed-text {
+  color: rgba(255, 255, 255, 1);
+  font-size: 12px;
+  line-height: 14px;
+  font-weight: 500;
+}
+
+.todo-bottom-buttons-div {
+  display: flex;
+}
+
+.todo-spinner {
+  position: absolute;
+  align-self: center;
+  top: 38%;
+}
+
+.todo-spinner-div-object-svg {
+  animation: rotation 1000ms infinite linear;
+  z-index: 2;
+}

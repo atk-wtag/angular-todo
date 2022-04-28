@@ -1,1 +1,90 @@
+* {
+  scroll-behavior: smooth;
+  font-family: "Roboto", sans-serif;
+  outline: none;
+}
+
 /* You can add global styles to this file, and also import other style files */
+body {
+  background-color: rgba(248, 249, 255, 1);
+  margin: 0;
+}
+
+.lg-txt {
+  font-weight: 700;
+  font-size: 25px;
+  line-height: 32px;
+  color: rgba(50, 57, 75, 1);
+}
+
+.md-txt {
+  font-weight: 700;
+  font-size: 22px;
+  line-height: 28px;
+  color: rgba(50, 57, 75, 1);
+}
+
+.sm-txt {
+  color: rgba(187, 189, 208, 1);
+  font-size: 14px;
+  line-height: 16px;
+}
+
+.container {
+  margin: 0 9vw;
+}
+
+textarea {
+  position: relative;
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 19px;
+  resize: none;
+  width: 100%;
+  background: #ffffff;
+  border: 3px solid #d1d8ff;
+  box-sizing: border-box;
+  border-radius: 5px;
+  max-height: 73px;
+}
+
+.disable {
+  opacity: 0.6;
+  pointer-events: none;
+  filter: blur(1px);
+}
+
+.disable-no-blur {
+  opacity: 0.6;
+  pointer-events: none;
+}
+
+.body-spinner {
+  position: absolute;
+  top: 47%;
+  left: 48%;
+}
+
+.body-spinner-svg {
+  animation: rotation 1s infinite linear;
+  position: fixed;
+  z-index: 1;
+  opacity: 1 !important;
+}
+@keyframes rotation {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+@-webkit-keyframes rotation {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}

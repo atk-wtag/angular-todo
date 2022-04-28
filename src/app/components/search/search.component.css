@@ -1,0 +1,40 @@
+div {
+  position: relative;
+  top: 20%;
+  margin-right: 9vw;
+  display: flex;
+}
+
+app-icon-button {
+  padding-top: 0.5vh;
+}
+
+input {
+  visibility: hidden;
+  opacity: 0;
+  height: 4.5vh;
+  width: 25vw;
+  position: relative;
+  background: #ffffff;
+  border: 3px solid #d1d8ff;
+  box-sizing: border-box;
+  border-radius: 5px;
+  font-style: normal;
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 19px;
+  color: #32394b;
+  vertical-align: top;
+}
+
+.fadeOut {
+  visibility: hidden;
+  opacity: 0;
+  transition: visibility 0s linear 300ms, opacity 300ms;
+}
+
+.fadeIn {
+  visibility: visible;
+  opacity: 1;
+  transition: visibility 0s linear 0s, opacity 300ms;
+}

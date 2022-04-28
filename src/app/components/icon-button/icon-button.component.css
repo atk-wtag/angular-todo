@@ -1,0 +1,32 @@
+.iconButton {
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+}
+
+.tooltip {
+  text-align: center;
+  z-index: 1000;
+  position: fixed;
+  visibility: hidden;
+  background-color: #5a5d64;
+  color: aliceblue;
+  padding: 5px 10px;
+  border-radius: 4px;
+  opacity: 0;
+  transition: opacity 1s;
+  transition-delay: 0.5s;
+  font-size: 0.78rem;
+  font-weight: 550;
+  width: auto;
+  pointer-events: none;
+}
+
+.show-tooltip {
+  visibility: visible;
+  opacity: 1;
+}
+
+p {
+  font-size: 14px;
+}

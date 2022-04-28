@@ -1,0 +1,8 @@
+<button
+  (mouseenter)="toggleTooltipVisibility('show-tooltip')"
+  (mouseleave)="toggleTooltipVisibility('show-tooltip')"
+  class="iconButton"
+>
+  <span #iconButtonVar> </span>
+  <p #tooltipVar *ngIf="toolTipText" class="tooltip">{{ this.toolTipText }}</p>
+</button>

@@ -1,5 +1,5 @@
 {
-  "name": "todo-app",
+  "name": "basic-todo",
   "version": "0.0.0",
   "scripts": {
     "ng": "ng",
@@ -18,8 +18,10 @@
     "@angular/platform-browser": "~13.3.0",
     "@angular/platform-browser-dynamic": "~13.3.0",
     "@angular/router": "~13.3.0",
+    "@supabase/supabase-js": "^1.34.1",
     "rxjs": "~7.5.0",
     "tslib": "^2.3.0",
+    "typeface-roboto": "^1.1.13",
     "zone.js": "~0.11.4"
   },
   "devDependencies": {
