@@ -1,12 +1,12 @@
-<app-splash class="splash-image" *ngIf="showSplash"></app-splash>
+<app-splash *ngIf="showSplash" class="splash-image"></app-splash>
 
-<div class="body-spinner" *ngIf="this.spinner">
+<div *ngIf="this.spinner" class="body-spinner">
   <svg
     class="body-spinner-svg"
-    width="51"
+    fill="none"
     height="51"
     viewBox="0 0 102 102"
-    fill="none"
+    width="51"
     xmlns="http://www.w3.org/2000/svg"
   >
     <path
@@ -17,15 +17,15 @@
 </div>
 <div #mainBody id="mainBody">
   <app-header></app-header>
-  <app-body-top> </app-body-top>
-  <div class="body-no-todos" *ngIf="this.noTodos">
+  <app-body-top></app-body-top>
+  <div *ngIf="this.noTodos" class="body-no-todos">
     <div>
       <svg
         class="body-no-todos-svg"
-        width="237"
+        fill="none"
         height="213"
         viewBox="0 0 237 213"
-        fill="none"
+        width="237"
         xmlns="http://www.w3.org/2000/svg"
       >
         <path
@@ -127,14 +127,14 @@
       </svg>
     </div>
     <p
-      id="no-todos-txt"
+      *ngIf="this.state.searchKeyword; else noTodosTextTemplate"
       class="md-txt"
-      *ngIf="this.state.searchKeyword; else noTodosText"
+      id="no-todos-txt"
     >
       The Keyword {{ this.state.searchKeyword }} Does Not Match Any Todos
     </p>
-    <ng-template #noTodosText>
-      <p id="no-todos-txt" class="md-txt">Nothing Found!</p>
+    <ng-template #noTodosTextTemplate>
+      <p class="md-txt" id="no-todos-txt">{{ this.noTodoText }}</p>
     </ng-template>
   </div>
   <router-outlet #routerBody></router-outlet>

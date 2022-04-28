@@ -10,6 +10,7 @@ import { Todo } from '../../models/todo.model';
 export class HttpService {
   private readonly _apiUrl = environment.apiUrl;
   private _httpError = new BehaviorSubject<boolean>(false);
+  private _httpSucccess = new BehaviorSubject<boolean>(false);
 
   constructor(private httpClient: HttpClient) {}
 
@@ -40,5 +41,16 @@ export class HttpService {
 
   get httpError(): boolean {
     return this._httpError.getValue();
+  }
+
+  set httpSuccess(value: boolean) {
+    this._httpSucccess.next(value);
+    setTimeout(() => {
+      this._httpSucccess.next(!value);
+    }, 1000);
+  }
+
+  get httpSuccess(): boolean {
+    return this._httpSucccess.getValue();
   }
 }

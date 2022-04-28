@@ -1,4 +1,5 @@
 import {
+  AfterViewChecked,
   ChangeDetectorRef,
   Component,
   DoCheck,
@@ -17,15 +18,21 @@ import { TodoStoreService } from './services/state/todoStore.service';
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css'],
 })
-export class AppComponent implements OnInit, DoCheck {
+export class AppComponent implements OnInit, DoCheck, AfterViewChecked {
   title = 'Todo App';
   showSplash: boolean = true;
   todos: any;
   spinner: boolean = false;
   noTodos: boolean;
+  noTodoText: string;
+
+  noIncompleteTodoText: string = 'No incomplete todos!';
+  noCompleteTodoText: string = 'No Complete todos!';
+  noAllTodoText: string = `You Haven't Added Any Todos Yet!`;
 
   @ViewChild('mainBody') mainBody: ElementRef;
   @ViewChild('routerBody') routerBody: ElementRef;
+  @ViewChild('noTodosTextTemplate') noTodosTextTemplate: ElementRef;
 
   constructor(
     public state: TodoStoreService,
@@ -68,5 +75,25 @@ export class AppComponent implements OnInit, DoCheck {
   }
   ngDoCheck() {
     this._changeDetector.detectChanges();
+  }
+  ngAfterViewChecked() {
+    const filterButtons = document.getElementById('filterButtonDiv');
+    const searchButton = document.getElementById('searchButton');
+
+    if (this.noTodosTextTemplate) {
+      if (this._router.url === '/incomplete')
+        this.noTodoText = this.noIncompleteTodoText;
+      else if (this._router.url === '/complete')
+        this.noTodoText = this.noCompleteTodoText;
+      else {
+        this.noTodoText = this.noAllTodoText;
+        filterButtons?.classList.add('disable-no-blur');
+        searchButton?.classList.add('disable-no-blur');
+      }
+      this._changeDetector.detectChanges();
+    } else {
+      filterButtons?.classList.remove('disable-no-blur');
+      searchButton?.classList.remove('disable-no-blur');
+    }
   }
 }

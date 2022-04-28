@@ -1,4 +1,3 @@
-import { Injectable } from '@angular/core';
 import {
   HttpErrorResponse,
   HttpEvent,
@@ -6,12 +5,13 @@ import {
   HttpRequest,
   HttpResponse,
 } from '@angular/common/http';
+import { Injectable } from '@angular/core';
 import { catchError, Observable, retry, throwError } from 'rxjs';
-import { environment } from 'src/environments/environment';
 import { map } from 'rxjs/operators';
 import { Todo, TodoOperation } from 'src/app/models/todo.model';
-import { TodoStoreService } from '../state/todoStore.service';
+import { environment } from 'src/environments/environment';
 import { HttpService } from '../http/http.service';
+import { TodoStoreService } from '../state/todoStore.service';
 
 @Injectable()
 export class HttpInterceptorService {
@@ -40,7 +40,7 @@ export class HttpInterceptorService {
           let todoEvent = event
             .clone()
             .body.map((todo: Todo[]) => new TodoOperation().deserialize(todo));
-
+          this._httpService.httpSuccess = true;
           return Object.assign(event, { body: todoEvent });
         }
         return event;
@@ -48,9 +48,9 @@ export class HttpInterceptorService {
       retry(2),
       catchError((error: HttpErrorResponse) => {
         this._httpService.httpError = true;
-        if (requestWithHeader.method !== 'GET') {
-          this._state.getAllTodos();
-        }
+        if (requestWithHeader.method !== 'GET') this._state.getAllTodos();
+        else this._state.resetTodoSubject();
+
         return throwError(() => error);
       })
     );

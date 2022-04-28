@@ -54,6 +54,11 @@ textarea {
   filter: blur(1px);
 }
 
+.disable-no-blur {
+  opacity: 0.6;
+  pointer-events: none;
+}
+
 .body-spinner {
   position: absolute;
   top: 47%;

@@ -107,4 +107,8 @@ export class TodoStoreService {
       this.todos = value;
     }, 300);
   }
+
+  resetTodoSubject() {
+    this._todos = new BehaviorSubject<Todo[]>([]);
+  }
 }
