@@ -4,7 +4,10 @@
   outline: none;
 }
 
-/* You can add global styles to this file, and also import other style files */
+::-webkit-scrollbar {
+  width: 0px;
+}
+
 body {
   background-color: rgba(248, 249, 255, 1);
   margin: 0;
@@ -65,12 +68,11 @@ textarea {
   left: 48%;
 }
 
-
 .body-spinner-svg {
   animation: rotation 1s infinite linear;
   position: fixed;
   z-index: 1;
-  opacity: 1
+  opacity: 1;
 }
 
 @keyframes rotation {

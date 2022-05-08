@@ -103,12 +103,16 @@ export class TodoComponent implements OnInit, AfterViewChecked {
   }
 
   markAsDone(todo: Todo) {
-    this.showSpinner();
-    this._state.setCompleted(todo);
-    if (this.enableEdit) {
-      todo.description !== this.textArea.nativeElement.value
-        ? this.updateTodo(todo)
-        : (this.enableEdit = !this.enableEdit);
+    const value = this._sanitizationService.sanitizeString(this.editValue);
+    if (value) {
+      this.editValue = value;
+      this.showSpinner();
+      this._state.setCompleted(todo);
+      if (this.enableEdit) {
+        todo.description !== this.textArea.nativeElement.value
+          ? this.updateTodo(todo)
+          : (this.enableEdit = !this.enableEdit);
+      }
     }
   }
 
@@ -118,6 +122,7 @@ export class TodoComponent implements OnInit, AfterViewChecked {
       this.showSpinner();
       this.enableEdit = !this.enableEdit;
       this._state.updateTodo(todo, value);
+      this.editValue = value;
     }
   }
 
