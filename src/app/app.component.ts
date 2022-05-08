@@ -10,7 +10,6 @@ import {
 import { Event, NavigationEnd, NavigationStart, Router } from '@angular/router';
 import { environment } from '../environments/environment.prod';
 import { BodySpinnerService } from './core/services/bodySpinner/body-spinner.service';
-import { HttpService } from './core/services/http/http.service';
 import { LoadingSplashService } from './core/services/loadingSplash/loading-splash.service';
 import { LoadMoreService } from './core/services/loadmore/load-more.service';
 import { NoTodosService } from './core/services/NoTodos/no-todos.service';
@@ -43,7 +42,6 @@ export class AppComponent implements OnInit, DoCheck, AfterViewChecked {
     private _noTodosService: NoTodosService,
     private _changeDetector: ChangeDetectorRef,
     private _bodySpinnerService: BodySpinnerService,
-    private _httpService: HttpService,
     public loadingSplash: LoadingSplashService
   ) {
     this._bodySpinnerService.spinner.subscribe(
@@ -72,9 +70,6 @@ export class AppComponent implements OnInit, DoCheck, AfterViewChecked {
         }
       }
     });
-
-    console.log(this._httpService.httpSuccess);
-    console.log(this._httpService.httpError);
   }
 
   ngDoCheck() {
