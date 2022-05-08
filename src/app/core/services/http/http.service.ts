@@ -1,18 +1,21 @@
-import {HttpClient} from '@angular/common/http';
-import {Injectable} from '@angular/core';
-import {BehaviorSubject, Observable} from 'rxjs';
-import {environment} from 'src/environments/environment';
-import {Todo} from '../../../models/todo.model';
+import { HttpClient } from '@angular/common/http';
+import { Injectable } from '@angular/core';
+import { BehaviorSubject, Observable } from 'rxjs';
+import { environment } from 'src/environments/environment';
+import { Todo } from '../../../models/todo.model';
 
 @Injectable({
   providedIn: 'root',
 })
 export class HttpService {
+  private _errorTimeout: number = 1500;
+  private _successTimeout: number = 1000;
+
   private readonly _apiUrl = environment.apiUrl;
+
   private _httpSucccess = new BehaviorSubject<boolean>(false);
 
-  constructor(private httpClient: HttpClient) {
-  }
+  constructor(private httpClient: HttpClient) {}
 
   private _httpError = new BehaviorSubject<boolean>(false);
 
@@ -24,7 +27,7 @@ export class HttpService {
     this._httpError.next(value);
     setTimeout(() => {
       this._httpError.next(!value);
-    }, 1500);
+    }, this._errorTimeout);
   }
 
   get httpSuccess(): boolean {
@@ -35,7 +38,7 @@ export class HttpService {
     this._httpSucccess.next(value);
     setTimeout(() => {
       this._httpSucccess.next(!value);
-    }, 1000);
+    }, this._successTimeout);
   }
 
   getAllDescending(): Observable<Todo[]> {

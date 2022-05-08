@@ -1,9 +1,20 @@
-import {AfterViewChecked, ChangeDetectorRef, Component, DoCheck, ElementRef, OnInit, ViewChild,} from '@angular/core';
-import {Event, NavigationEnd, NavigationStart, Router} from '@angular/router';
-import {BodySpinnerService} from './core/services/bodySpinner/body-spinner.service';
-import {LoadMoreService} from './core/services/loadmore/load-more.service';
-import {NoTodosService} from './core/services/NoTodos/no-todos.service';
-import {TodoStoreService} from './core/services/state/todoStore.service';
+import {
+  AfterViewChecked,
+  ChangeDetectorRef,
+  Component,
+  DoCheck,
+  ElementRef,
+  OnInit,
+  ViewChild,
+} from '@angular/core';
+import { Event, NavigationEnd, NavigationStart, Router } from '@angular/router';
+import { environment } from '../environments/environment.prod';
+import { BodySpinnerService } from './core/services/bodySpinner/body-spinner.service';
+import { HttpService } from './core/services/http/http.service';
+import { LoadingSplashService } from './core/services/loadingSplash/loading-splash.service';
+import { LoadMoreService } from './core/services/loadmore/load-more.service';
+import { NoTodosService } from './core/services/NoTodos/no-todos.service';
+import { TodoStoreService } from './core/services/state/todoStore.service';
 
 @Component({
   selector: 'app-root',
@@ -12,7 +23,6 @@ import {TodoStoreService} from './core/services/state/todoStore.service';
 })
 export class AppComponent implements OnInit, DoCheck, AfterViewChecked {
   title = 'Todo';
-  showSplash: boolean = true;
   todos: any;
   spinner: boolean = false;
   noTodos: boolean;
@@ -32,7 +42,9 @@ export class AppComponent implements OnInit, DoCheck, AfterViewChecked {
     private _router: Router,
     private _noTodosService: NoTodosService,
     private _changeDetector: ChangeDetectorRef,
-    private _bodySpinnerService: BodySpinnerService
+    private _bodySpinnerService: BodySpinnerService,
+    private _httpService: HttpService,
+    public loadingSplash: LoadingSplashService
   ) {
     this._bodySpinnerService.spinner.subscribe(
       (value) => (this.spinner = value)
@@ -56,14 +68,13 @@ export class AppComponent implements OnInit, DoCheck, AfterViewChecked {
           setTimeout(() => {
             this._bodySpinnerService.toggleSpinner();
             this.mainBody.nativeElement.classList.remove('disable');
-          }, 300);
+          }, environment.loadingDelay);
         }
       }
     });
 
-    setTimeout(() => {
-      this.showSplash = !this.showSplash;
-    }, 1500);
+    console.log(this._httpService.httpSuccess);
+    console.log(this._httpService.httpError);
   }
 
   ngDoCheck() {

@@ -1,4 +1,7 @@
-<app-splash *ngIf="showSplash" class="splash-image"></app-splash>
+<app-splash
+  *ngIf="this.loadingSplash.isLoading | async"
+  class="splash-image"
+></app-splash>
 
 <div *ngIf="this.spinner" class="body-spinner">
   <svg

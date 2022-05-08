@@ -1963,7 +1963,7 @@
   "version" "10.4.4"
   dependencies:
     "browserslist" "^4.20.2"
-    "caniuse-lite" "^1.0.30001317"
+    "caniuse-lite" "^1.0.environment.loadingDelay01317"
     "fraction.js" "^4.2.0"
     "normalize-range" "^0.1.2"
     "picocolors" "^1.0.0"
@@ -2131,7 +2131,7 @@
   "resolved" "https://registry.npmjs.org/browserslist/-/browserslist-4.20.2.tgz"
   "version" "4.20.2"
   dependencies:
-    "caniuse-lite" "^1.0.30001317"
+    "caniuse-lite" "^1.0.environment.loadingDelay01317"
     "electron-to-chromium" "^1.4.84"
     "escalade" "^3.1.1"
     "node-releases" "^2.0.2"
@@ -2243,10 +2243,10 @@
   "resolved" "https://registry.npmjs.org/camelcase/-/camelcase-5.3.1.tgz"
   "version" "5.3.1"
 
-"caniuse-lite@^1.0.30001299", "caniuse-lite@^1.0.30001317":
+"caniuse-lite@^1.0.environment.loadingDelay01299", "caniuse-lite@^1.0.environment.loadingDelay01317":
   "integrity" "sha512-Ue55jHkR/s4r00FLNiX+hGMMuwml/QGqqzVeMQ5thUewznU2EdULFvI3JR7JJid6OrjJNfFvHY2G2dIjmRaDDQ=="
-  "resolved" "https://registry.npmjs.org/caniuse-lite/-/caniuse-lite-1.0.30001328.tgz"
-  "version" "1.0.30001328"
+  "resolved" "https://registry.npmjs.org/caniuse-lite/-/caniuse-lite-1.0.environment.loadingDelay01328.tgz"
+  "version" "1.0.environment.loadingDelay01328"
 
 "chalk@^2.0.0":
   "integrity" "sha512-Mti+f9lpJNcwF4tWV8/OrTTtF1gZi+f8FqlyAdouralcFWFQWF2+NgCHShjkCb+IFBLq9buZwE1xckQU4peSuQ=="
@@ -3053,7 +3053,7 @@
   "version" "5.3.0"
 
 "esutils@^2.0.2":
-  "integrity" "sha512-kVscqXk4OCp68SZ0dkgEKVi6/8ij300KBWTJq32P/dYeWTSwK41WyTxalN1eRmA5Z9UU/LX9D7FWSmV9SAYx6g=="
+  "integrity" "sha512-kVscqXk4OCp68SZ0dkgEKVi6/8ijenvironment.loadingDelayKBWTJq32P/dYeWTSwK41WyTxalN1eRmA5Z9UU/LX9D7FWSmV9SAYx6g=="
   "resolved" "https://registry.npmjs.org/esutils/-/esutils-2.0.3.tgz"
   "version" "2.0.3"
 
@@ -5164,7 +5164,7 @@
   dependencies:
     "autoprefixer" "^10.4.2"
     "browserslist" "^4.19.1"
-    "caniuse-lite" "^1.0.30001299"
+    "caniuse-lite" "^1.0.environment.loadingDelay01299"
     "css-blank-pseudo" "^3.0.2"
     "css-has-pseudo" "^3.0.3"
     "css-prefers-color-scheme" "^6.0.2"

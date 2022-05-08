@@ -1,7 +1,15 @@
-import {AfterViewChecked, Component, ElementRef, Input, OnInit, ViewChild,} from '@angular/core';
-import {TodoStoreService} from 'src/app/core/services/state/todoStore.service';
-import {Todo} from '../../models/todo.model';
-import {SanitizeService} from '../../core/services/sanitization/sanitize.service';
+import {
+  AfterViewChecked,
+  Component,
+  ElementRef,
+  Input,
+  OnInit,
+  ViewChild,
+} from '@angular/core';
+import { TodoStoreService } from 'src/app/core/services/state/todoStore.service';
+import { environment } from 'src/environments/environment';
+import { SanitizeService } from '../../core/services/sanitization/sanitize.service';
+import { Todo } from '../../models/todo.model';
 
 @Component({
   selector: 'app-todo',
@@ -21,8 +29,7 @@ export class TodoComponent implements OnInit, AfterViewChecked {
   constructor(
     private _state: TodoStoreService,
     private _sanitizationService: SanitizeService
-  ) {
-  }
+  ) {}
 
   ngOnInit(): void {
     this.editValue = this.todoObject.description;
@@ -77,7 +84,7 @@ export class TodoComponent implements OnInit, AfterViewChecked {
     const difference = Math.floor(
       (Date.UTC(date1.getFullYear(), date1.getMonth(), date1.getDate()) -
         Date.UTC(date2.getFullYear(), date2.getMonth(), date2.getDate())) /
-      (1000 * 60 * 60 * 24)
+        (1000 * 60 * 60 * 24)
     );
 
     if (difference > 1) {
@@ -126,6 +133,6 @@ export class TodoComponent implements OnInit, AfterViewChecked {
     setTimeout(() => {
       this.spinner = !this.spinner;
       this.todoMain.nativeElement.classList.remove('disable');
-    }, 300);
+    }, environment.loadingDelay);
   }
 }

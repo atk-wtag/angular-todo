@@ -4,6 +4,7 @@
 
 export const environment = {
   production: false,
+  loadingDelay: 300,
   apiUrl: 'https://vpmtafvtfkzjqayxfuhp.supabase.co/rest/v1/todos?',
   supabaseUrl: 'https://vpmtafvtfkzjqayxfuhp.supabase.co',
   supabaseKey:
@@ -18,4 +19,3 @@ export const environment = {
  * on performance if an error is thrown.
  */
 // import 'zone.js/plugins/zone-error';  // Included with Angular CLI.
-

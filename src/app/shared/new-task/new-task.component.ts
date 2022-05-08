@@ -1,8 +1,9 @@
-import {AfterViewInit, Component, ElementRef, ViewChild} from '@angular/core';
-import {Router} from '@angular/router';
-import {TodoStoreService} from 'src/app/core/services/state/todoStore.service';
-import {AddNewService} from '../../core/services/addnew/addNew.service';
-import {SanitizeService} from '../../core/services/sanitization/sanitize.service';
+import { AfterViewInit, Component, ElementRef, ViewChild } from '@angular/core';
+import { Router } from '@angular/router';
+import { TodoStoreService } from 'src/app/core/services/state/todoStore.service';
+import { environment } from 'src/environments/environment';
+import { AddNewService } from '../../core/services/addnew/addNew.service';
+import { SanitizeService } from '../../core/services/sanitization/sanitize.service';
 
 @Component({
   selector: 'app-new-task',
@@ -19,8 +20,7 @@ export class NewTaskComponent implements AfterViewInit {
     private _state: TodoStoreService,
     private _sanitizationService: SanitizeService,
     private _router: Router
-  ) {
-  }
+  ) {}
 
   getDeleteIcon() {
     return `<svg
@@ -60,7 +60,7 @@ export class NewTaskComponent implements AfterViewInit {
       if (this._router.url === '/complete') {
         setTimeout(() => {
           this._router.navigateByUrl('/all');
-        }, 300);
+        }, environment.loadingDelay);
       }
     }
 
@@ -81,6 +81,6 @@ export class NewTaskComponent implements AfterViewInit {
       this.deleteCard();
       this.spinner = !this.spinner;
       this.addTodoMain.nativeElement.classList.remove('disable');
-    }, 300);
+    }, environment.loadingDelay);
   }
 }

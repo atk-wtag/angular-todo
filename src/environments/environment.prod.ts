@@ -1,5 +1,6 @@
 export const environment = {
   production: true,
+  loadingDelay: 300,
   apiUrl: 'https://vpmtafvtfkzjqayxfuhp.supabase.co/rest/v1/todos?',
   supabaseUrl: 'https://vpmtafvtfkzjqayxfuhp.supabase.co',
   supabaseKey:

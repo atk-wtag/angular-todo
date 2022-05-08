@@ -1,7 +1,9 @@
 import { Injectable } from '@angular/core';
 import { BehaviorSubject, map, Observable } from 'rxjs';
 import { Todo } from 'src/app/models/todo.model';
+import { environment } from 'src/environments/environment';
 import { HttpService } from '../http/http.service';
+import { LoadingSplashService } from '../loadingSplash/loading-splash.service';
 
 @Injectable({
   providedIn: 'root',
@@ -16,7 +18,10 @@ export class TodoStoreService {
   private _todos = new BehaviorSubject<Todo[]>([]);
   readonly todos$: Observable<Todo[]> = this._todos;
 
-  constructor(private _httpService: HttpService) {}
+  constructor(
+    private _httpService: HttpService,
+    private _loadingSplash: LoadingSplashService
+  ) {}
 
   set todos(value: Todo[]) {
     this._todos.next(value);
@@ -29,7 +34,8 @@ export class TodoStoreService {
   getAllTodos() {
     const allTodos = this._httpService.getAllDescending();
     allTodos.subscribe((todos: Todo[]) => {
-      this.todos = todos;
+      success: this.todos = todos;
+      complete: this._loadingSplash.isLoading.next(false);
     });
   }
 
@@ -42,7 +48,7 @@ export class TodoStoreService {
     this._httpService.addTodo(newTodo).subscribe();
     setTimeout(() => {
       this._todos.next([newTodo, ...this.todos]);
-    }, 300);
+    }, environment.loadingDelay);
   }
 
   removeTodo(value: Todo) {
@@ -105,7 +111,7 @@ export class TodoStoreService {
   assignWithDelay(value: Todo[]) {
     setTimeout(() => {
       this.todos = value;
-    }, 300);
+    }, environment.loadingDelay);
   }
 
   resetTodoSubject() {

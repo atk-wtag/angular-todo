@@ -1,6 +1,7 @@
-import {Component} from '@angular/core';
-import {BodySpinnerService} from 'src/app/core/services/bodySpinner/body-spinner.service';
-import {LoadMoreService} from '../../services/loadmore/load-more.service';
+import { Component } from '@angular/core';
+import { BodySpinnerService } from 'src/app/core/services/bodySpinner/body-spinner.service';
+import { environment } from 'src/environments/environment';
+import { LoadMoreService } from '../../services/loadmore/load-more.service';
 
 @Component({
   selector: 'app-body-bottom',
@@ -34,7 +35,7 @@ export class BodyBottomComponent {
       document.getElementById('mainBody')?.classList.remove('disable');
 
       this.loadMoreService.loadMore();
-    }, 300);
+    }, environment.loadingDelay);
   }
 
   showLessTodos() {
@@ -44,6 +45,6 @@ export class BodyBottomComponent {
       this._bodySpinnerService.toggleSpinner();
       document.getElementById('mainBody')?.classList.remove('disable');
       this.loadMoreService.showLess();
-    }, 300);
+    }, environment.loadingDelay);
   }
 }

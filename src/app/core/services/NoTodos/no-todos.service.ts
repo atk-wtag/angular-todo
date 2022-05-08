@@ -5,6 +5,6 @@ import { BehaviorSubject } from 'rxjs/internal/BehaviorSubject';
   providedIn: 'root',
 })
 export class NoTodosService {
-  public noTodos = new BehaviorSubject<boolean>(false);
+  public noTodos = new BehaviorSubject<boolean>(true);
   constructor() {}
 }
