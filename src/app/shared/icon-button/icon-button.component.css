@@ -14,8 +14,6 @@
   padding: 5px 10px;
   border-radius: 4px;
   opacity: 0;
-  transition: opacity 1s;
-  transition-delay: 0.5s;
   font-size: 0.78rem;
   font-weight: 550;
   width: auto;
@@ -25,6 +23,8 @@
 .show-tooltip {
   visibility: visible;
   opacity: 1;
+  transition: opacity 800ms;
+  transition-delay: 400ms;
 }
 
 p {

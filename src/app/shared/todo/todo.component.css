@@ -1,5 +1,4 @@
 .todo {
-  min-width: 285px;
   overflow: hidden;
   min-height: 160px;
   background: #ffffff;
@@ -20,11 +19,12 @@
   justify-content: space-between;
   gap: 15px;
 }
-@media only screen and (max-width: 400px) {
+
+@media only screen and (max-width: 339px) {
   .todo {
     min-width: none;
     max-width: auto;
-    margin-right: 9vw;
+    margin-right: 8vw;
   }
 }
 
