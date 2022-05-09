@@ -1,5 +1,5 @@
-import {Component, ElementRef, ViewChild} from '@angular/core';
-import {TodoStoreService} from 'src/app/core/services/state/todoStore.service';
+import { Component, ElementRef, ViewChild } from '@angular/core';
+import { TodoStoreService } from 'src/app/core/services/state/todoStore.service';
 
 @Component({
   selector: 'app-search',
@@ -10,8 +10,7 @@ export class SearchComponent {
   @ViewChild('searchBar') search: ElementRef;
   showSearchBar: boolean = false;
 
-  constructor(public state: TodoStoreService) {
-  }
+  constructor(public state: TodoStoreService) {}
 
   toggleSearchBarVisibility() {
     this.showSearchBar = !this.showSearchBar;

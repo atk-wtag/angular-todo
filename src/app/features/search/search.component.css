@@ -30,11 +30,11 @@ input {
 .fadeOut {
   visibility: hidden;
   opacity: 0;
-  transition: visibility 0s linear 300ms, opacity 500ms;
+  transition: visibility 0s linear 300ms, opacity 400ms;
 }
 
 .fadeIn {
   visibility: visible;
   opacity: 1;
-  transition: visibility 0s linear 100ms, opacity 500ms;
+  transition: visibility 0s linear 0ms, opacity 400ms;
 }
