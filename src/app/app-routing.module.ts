@@ -1,17 +1,16 @@
-import {NgModule} from '@angular/core';
-import {RouterModule, Routes} from '@angular/router';
-import {BodyMidComponent} from './core/basic-layouts/body-mid/body-mid.component';
+import { NgModule } from '@angular/core';
+import { RouterModule, Routes } from '@angular/router';
+import { BodyMidComponent } from './core/basic-layouts/body-mid/body-mid.component';
 
 const routes: Routes = [
-  {path: 'all', component: BodyMidComponent},
-  {path: 'incomplete', component: BodyMidComponent},
-  {path: 'complete', component: BodyMidComponent},
-  {path: '**', redirectTo: 'all', pathMatch: 'full'},
+  { path: 'all', component: BodyMidComponent },
+  { path: 'incomplete', component: BodyMidComponent },
+  { path: 'complete', component: BodyMidComponent },
+  { path: '**', redirectTo: 'all', pathMatch: 'full' },
 ];
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
   exports: [RouterModule],
 })
-export class AppRoutingModule {
-}
+export class AppRoutingModule {}

@@ -1,5 +1,5 @@
-import {LoadMoreService} from '../services/loadmore/load-more.service';
-import {SearchPipe} from './search.pipe';
+import { LoadMoreService } from '../services/loadmore/load-more.service';
+import { SearchPipe } from './search.pipe';
 
 describe('SearchPipe', () => {
   it('create an instance', () => {

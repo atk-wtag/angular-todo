@@ -1,5 +1,4 @@
 import { TestBed } from '@angular/core/testing';
-
 import { SanitizeService } from './sanitize.service';
 
 describe('SanitizeService', () => {

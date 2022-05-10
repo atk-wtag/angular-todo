@@ -1,5 +1,4 @@
 import { TestBed } from '@angular/core/testing';
-
 import { BodySpinnerService } from './body-spinner.service';
 
 describe('BodySpinnerService', () => {

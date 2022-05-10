@@ -1,5 +1,4 @@
 import { TestBed } from '@angular/core/testing';
-
 import { NoTodosService } from './no-todos.service';
 
 describe('NoTodosService', () => {

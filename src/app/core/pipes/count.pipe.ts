@@ -1,8 +1,8 @@
-import {OnDestroy, Pipe, PipeTransform} from '@angular/core';
-import {Subscription} from 'rxjs/internal/Subscription';
-import {Todo} from 'src/app/models/todo.model';
-import {NoTodosService} from 'src/app/core/services/NoTodos/no-todos.service';
-import {LoadMoreService} from '../services/loadmore/load-more.service';
+import { OnDestroy, Pipe, PipeTransform } from '@angular/core';
+import { Subscription } from 'rxjs/internal/Subscription';
+import { NoTodosService } from 'src/app/core/services/NoTodos/no-todos.service';
+import { Todo } from 'src/app/models/todo.model';
+import { LoadMoreService } from '../services/loadmore/load-more.service';
 
 @Pipe({
   name: 'count',
@@ -14,8 +14,7 @@ export class CountPipe implements PipeTransform, OnDestroy {
   constructor(
     private _loadMoreService: LoadMoreService,
     private _noTodosService: NoTodosService
-  ) {
-  }
+  ) {}
 
   transform(value: Todo[]): Todo[] {
     const length = value.length;
@@ -42,5 +41,3 @@ export class CountPipe implements PipeTransform, OnDestroy {
     if (this._showTillSubscription) this._showTillSubscription.unsubscribe();
   }
 }
-
-// to >= length &&

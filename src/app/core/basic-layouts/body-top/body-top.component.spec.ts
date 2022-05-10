@@ -1,5 +1,4 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
-
 import { BodyTopComponent } from './body-top.component';
 
 describe('BodyTopComponent', () => {
@@ -8,9 +7,8 @@ describe('BodyTopComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ BodyTopComponent ]
-    })
-    .compileComponents();
+      declarations: [BodyTopComponent],
+    }).compileComponents();
   });
 
   beforeEach(() => {

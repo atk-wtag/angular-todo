@@ -1,10 +1,15 @@
-// import { animate, style, transition, trigger } from '@angular/animations';
-import {Component, ElementRef, OnDestroy, OnInit, ViewChild,} from '@angular/core';
-import {Router} from '@angular/router';
-import {Subscription} from 'rxjs/internal/Subscription';
-import {AddNewService} from 'src/app/core/services/addnew/addNew.service';
-import {TodoStoreService} from 'src/app/core/services/state/todoStore.service';
-import {LoadMoreService} from '../../services/loadmore/load-more.service';
+import {
+  Component,
+  ElementRef,
+  OnDestroy,
+  OnInit,
+  ViewChild,
+} from '@angular/core';
+import { Router } from '@angular/router';
+import { Subscription } from 'rxjs/internal/Subscription';
+import { AddNewService } from 'src/app/core/services/addnew/addNew.service';
+import { TodoStoreService } from 'src/app/core/services/state/todoStore.service';
+import { LoadMoreService } from '../../services/loadmore/load-more.service';
 
 @Component({
   selector: 'app-body-mid',

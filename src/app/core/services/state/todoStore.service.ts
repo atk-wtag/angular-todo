@@ -34,7 +34,7 @@ export class TodoStoreService {
   getAllTodos() {
     const allTodos = this._httpService.getAllDescending();
     allTodos.subscribe((todos: Todo[]) => {
-      success: this.todos = todos;
+      this.todos = todos;
       complete: this._loadingSplash.isLoading.next(false);
     });
   }
