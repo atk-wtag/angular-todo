@@ -1,5 +1,4 @@
 .add-todo {
-  min-width: 285px;
   overflow: hidden;
   min-height: 160px;
   background: #ffffff;
@@ -14,39 +13,40 @@
   position: relative;
 }
 
-@media only screen and (max-width: 400px) {
+@media only screen and (max-width: 339px) {
   .add-todo {
     min-width: none;
     max-width: auto;
-    margin-right: 9vw;
+    margin-right: 8vw;
   }
 }
-.add-todo-main {
+.add-todo__main {
   display: flex;
   flex-direction: column;
   justify-content: space-between;
   gap: 15px;
 }
-app-icon-button {
-  margin: 0.2rem;
+
+.add-todo__main__bottom__buttons__icon-button {
+  margin: 0.2em;
 }
 
-.add-todo-bottom-div {
+.add-todo__main__bottom {
   display: flex;
   justify-content: space-between;
 }
 
-.add-todo-bottom-buttons-div {
+.add-todo__main__bottom__buttons {
   display: flex;
 }
 
-.add-todo-spinner {
+.add-todo__spinner {
   position: absolute;
   align-self: center;
   top: 38%;
   z-index: 1;
 }
-.add-todo-spinner-object-svg {
+.add-todo__spinner__object__image {
   animation: rotation 1000ms infinite linear;
   z-index: 2;
 }

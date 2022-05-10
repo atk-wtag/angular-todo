@@ -1,4 +1,4 @@
-.todo {
+.card {
   overflow: hidden;
   min-height: 160px;
   background: #ffffff;
@@ -13,7 +13,7 @@
   position: relative;
 }
 
-.todo-main {
+.card__body {
   display: flex;
   flex-direction: column;
   justify-content: space-between;
@@ -21,14 +21,14 @@
 }
 
 @media only screen and (max-width: 339px) {
-  .todo {
+  .card {
     min-width: none;
     max-width: auto;
     margin-right: 8vw;
   }
 }
 
-app-icon-button {
+.card__body__bottom__left__button {
   margin: 0.2rem;
 }
 
@@ -37,12 +37,12 @@ app-icon-button {
   color: rgb(11, 195, 117);
 }
 
-.todo-bottom-div {
+.card__body__bottom {
   display: flex;
   justify-content: space-between;
 }
 
-.todo-bottom-completed-div {
+.card__body__bottom__right {
   position: relative;
   display: flex;
   background: #7a8dfd;
@@ -53,24 +53,24 @@ app-icon-button {
   max-height: 15px;
 }
 
-.completed-text {
+.card__body__bottom__right__text {
   color: rgba(255, 255, 255, 1);
   font-size: 12px;
   line-height: 14px;
   font-weight: 500;
 }
 
-.todo-bottom-buttons-div {
+.card__body__bottom__left {
   display: flex;
 }
 
-.todo-spinner {
+.card__spinner {
   position: absolute;
   align-self: center;
   top: 38%;
 }
 
-.todo-spinner-div-object-svg {
+.card__spinner__object__image {
   animation: rotation 1000ms infinite linear;
   z-index: 2;
 }

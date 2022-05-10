@@ -1,11 +1,14 @@
 * {
-  scroll-behavior: smooth;
-  font-family: "Roboto", sans-serif;
   outline: none;
+  font-family: "Roboto", sans-serif;
 }
 
 ::-webkit-scrollbar {
   width: 0px;
+}
+
+html {
+  scroll-behavior: smooth;
 }
 
 body {
@@ -15,7 +18,7 @@ body {
 
 .lg-txt {
   font-weight: 700;
-  font-size: 25px;
+  font-size: 26px;
   line-height: 32px;
   color: rgba(50, 57, 75, 1);
 }
@@ -60,19 +63,6 @@ textarea {
 .disable-no-blur {
   opacity: 0.6;
   pointer-events: none;
-}
-
-.body-spinner {
-  position: absolute;
-  top: 47%;
-  left: 48%;
-}
-
-.body-spinner-svg {
-  animation: rotation 1s infinite linear;
-  position: fixed;
-  z-index: 1;
-  opacity: 1;
 }
 
 @keyframes rotation {

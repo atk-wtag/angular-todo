@@ -1,4 +1,4 @@
-#header {
+.header {
   background: rgba(255, 255, 255, 1);
   border: 1px solid #dde2ff;
   border-right: none;
@@ -7,13 +7,13 @@
   min-height: 7.5vh;
 }
 
-#header-logo {
+.header__logo {
   margin-left: 9vw;
   border: none;
   position: relative;
 }
 
-#header-logo object {
+.header__logo__image {
   position: relative;
   padding-top: 10%;
   border: none;
@@ -39,10 +39,10 @@
   font-weight: 700;
 }
 
-.error {
+.toastr--error {
   background: rgba(232, 95, 95, 1);
 }
 
-.success {
+.toastr--success {
   background: rgba(11, 195, 117, 1);
 }

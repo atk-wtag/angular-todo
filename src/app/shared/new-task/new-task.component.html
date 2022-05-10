@@ -1,8 +1,8 @@
 <div class="add-todo">
-  <div *ngIf="this.spinner" class="add-todo-spinner">
-    <object class="add-todo-spinner-object">
+  <div *ngIf="this.spinner" class="add-todo__spinner">
+    <object class="add-todo__spinner__object">
       <svg
-        class="add-todo-spinner-object-svg"
+        class="add-todo__spinner__object__image"
         fill="none"
         height="40"
         id="1648357311472spinner"
@@ -17,8 +17,8 @@
       </svg>
     </object>
   </div>
-  <div #addTodoMain class="add-todo-main">
-    <div class="add-todo-main-top-div">
+  <div #addTodoMain class="add-todo__main">
+    <div class="add-todo__main__top">
       <textarea
         #newTextArea
         (keydown)="onKeyDown($event)"
@@ -29,11 +29,12 @@
       ></textarea>
     </div>
 
-    <div class="add-todo-main-bottom-div">
-      <div class="add-todo-bottom-buttons-div">
+    <div class="add-todo__main__bottom">
+      <div class="add-todo__main__bottom__buttons">
         <app-text-button (click)="addTask()" [text]="'Add'"></app-text-button>
 
         <app-icon-button
+          class="add-todo__main__bottom__buttons__icon-button"
           (click)="deleteCard()"
           [icon]="getDeleteIcon()"
           [toolTipText]="'Delete'"

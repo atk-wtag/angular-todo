@@ -4,7 +4,7 @@
   text-align: center;
   transition: all 250ms ease-in-out;
 }
-.textButton {
+.text-button {
   font-size: 15px;
   line-height: 20px;
   color: #32394b;
@@ -15,11 +15,11 @@
   padding: 0 15px;
 }
 
-.textButton:hover {
+.text-button:hover {
   box-shadow: #dde2ff 0 1px 0, #dde2ff 0 0 10px;
 }
 
-.createButton {
+.create-button {
   font-size: 16px;
   min-width: 5.6vw;
   line-height: 19px;
@@ -39,7 +39,7 @@
   padding-right: 0.3vw;
 }
 
-.loadMoreButton {
+.load-more-button {
   margin: 20px;
   background: rgba(50, 57, 75, 0.95);
   border: none;
@@ -51,7 +51,7 @@
   padding: 0 15px;
 }
 
-.loadMoreButton:hover {
+.load-more-button:hover {
   box-shadow: #5e5e5e 0px 0.5px 4px, #5e5e5e 0px 0px 4px;
   border: none;
 }

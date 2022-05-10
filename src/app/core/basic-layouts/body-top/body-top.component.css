@@ -1,29 +1,29 @@
-#buttonDiv {
+.container__buttons {
   display: flex;
   flex-direction: row;
   justify-content: space-between;
 }
 
-#filterButtonDiv {
+.container__filter-buttons {
   display: flex;
   justify-content: right;
   gap: 0.5vw;
 }
 
 @media only screen and (max-width: 500px) {
-  #buttonDiv {
+  .container__buttons {
     flex-direction: column;
     justify-content: space-between;
     gap: 20px;
   }
-  #filterButtonDiv {
+  .container__filter-buttons {
     display: flex;
     justify-content: space-evenly;
     gap: 0.5vw;
   }
 }
 
-.is-active {
+.button-active {
   box-shadow: #dde2ff 0 0.5px 2px, #dde2ff 0 0 8px;
   border-radius: 5px;
 }

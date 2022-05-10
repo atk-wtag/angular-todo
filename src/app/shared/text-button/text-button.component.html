@@ -1,5 +1,5 @@
 <button [ngClass]="class">
-  <span #textButtonIcon *ngIf="class === 'createButton'" id="buttonIconSpan"
+  <span #textButtonIcon *ngIf="class === 'create-button'" id="buttonIconSpan"
     ><svg
       id="createSVG"
       width="14"
@@ -13,5 +13,5 @@
         fill="white"
       ></path></svg
   ></span>
-  <span class="textButton-text">{{ text }}</span>
+  <span class="text-button__text">{{ text }}</span>
 </button>

@@ -6,7 +6,7 @@ import { Component, ElementRef, Input, ViewChild } from '@angular/core';
   styleUrls: ['./text-button.component.css'],
 })
 export class TextButtonComponent {
-  @Input() class: string = 'textButton';
+  @Input() class: string = 'text-button';
   @Input() text: string;
 
   @ViewChild('textButtonIcon') textButtonIcon: ElementRef;

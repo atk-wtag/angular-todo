@@ -1,4 +1,4 @@
-.body-no-todos {
+.no-todos {
   position: absolute;
   display: flex;
   flex-direction: column;
@@ -9,13 +9,26 @@
   width: 100vw;
 }
 
-.splash-image {
+.body-splash-image {
   position: absolute;
   width: 100vw;
   z-index: 10;
 }
 
-#no-todos-txt {
+.body-spinner {
+  position: absolute;
+  top: 47%;
+  left: 48%;
+}
+
+.body-spinner__image {
+  animation: rotation 1000ms infinite linear;
+  position: fixed;
+  z-index: 1;
+  opacity: 1;
+}
+
+.no-todos__txt {
   text-align: center;
   padding: 0 5vw;
 }

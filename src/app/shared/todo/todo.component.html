@@ -1,8 +1,8 @@
-<div class="todo">
-  <div class="todo-spinner" *ngIf="this.spinner">
-    <object class="todo-spinner-div-object">
+<div class="card">
+  <div class="card__spinner" *ngIf="this.spinner">
+    <object class="card__spinner__object">
       <svg
-        class="todo-spinner-div-object-svg"
+        class="card__spinner__object__image"
         width="43"
         height="43"
         viewBox="0 0 51 51"
@@ -17,8 +17,8 @@
       </svg>
     </object>
   </div>
-  <div class="todo-main" #todoMain *ngIf="this.todoObject">
-    <div class="todo-top-div">
+  <div class="card__body" #todoMain *ngIf="this.todoObject">
+    <div class="card__body__top">
       <ng-template [ngIf]="!enableEdit">
         <label
           class="md-txt"
@@ -40,8 +40,8 @@
         ></textarea>
       </ng-template>
     </div>
-    <div class="todo-bottom-div">
-      <div class="todo-bottom-buttons-div">
+    <div class="card__body__bottom">
+      <div class="card__body__bottom__left">
         <ng-template [ngIf]="!todoObject.completed">
           <app-text-button
             *ngIf="enableEdit"
@@ -49,11 +49,13 @@
             (click)="updateTodo(todoObject)"
           ></app-text-button>
           <app-icon-button
+            class="card__body__bottom__left__button"
             [toolTipText]="'Mark as Done'"
             [icon]="getMarkasDoneIcon()"
             (click)="markAsDone(todoObject)"
           ></app-icon-button>
           <app-icon-button
+            class="card__body__bottom__left__button"
             *ngIf="!enableEdit"
             [toolTipText]="'Edit'"
             [icon]="getEditIcon()"
@@ -67,8 +69,8 @@
           (click)="deleteTodo(todoObject)"
         ></app-icon-button>
       </div>
-      <div class="todo-bottom-completed-div" *ngIf="todoObject.completed">
-        <label class="completed-text"
+      <div class="card__body__bottom__right" *ngIf="todoObject.completed">
+        <label class="card__body__bottom__right__text"
           >Completed in
           {{
             compareDates(todoObject.completedAt, todoObject.createdAt)

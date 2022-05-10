@@ -1,10 +1,10 @@
 <div class="container">
-  <div class="body-top-div"><p class="lg-txt">Add Tasks</p></div>
+  <div class="container__header"><p class="lg-txt">Add Tasks</p></div>
 
-  <div class="body-top-div" id="buttonDiv">
-    <div id="createButtonDiv">
+  <div class="container__buttons" id="buttonDiv">
+    <div id="createButtonDiv" class="container__add-button">
       <app-text-button
-        [class]="'createButton'"
+        [class]="'create-button'"
         [text]="'Create'"
         (click)="showAddNewTask()"
       ></app-text-button>
@@ -12,24 +12,23 @@
     <!-- create button div end-->
 
     <!-- filter buttons div -->
-    <div id="filterButtonDiv">
+    <div id="filterButtonDiv" class="container__filter-buttons">
       <app-text-button
         [text]="'All'"
         [routerLink]="'/all'"
-        [routerLinkActive]="['is-active']"
+        [routerLinkActive]="['button-active']"
         [routerLinkActiveOptions]="{ exact: true }"
       ></app-text-button>
       <app-text-button
         [text]="'Incomplete'"
         [routerLink]="'/incomplete'"
-        [routerLinkActive]="'active'"
-        [routerLinkActive]="['is-active']"
+        [routerLinkActive]="['button-active']"
         [routerLinkActiveOptions]="{ exact: true }"
       ></app-text-button>
       <app-text-button
         [text]="'Completed'"
         [routerLink]="'/complete'"
-        [routerLinkActive]="['is-active']"
+        [routerLinkActive]="['button-active']"
         [routerLinkActiveOptions]="{ exact: true }"
       ></app-text-button>
     </div>

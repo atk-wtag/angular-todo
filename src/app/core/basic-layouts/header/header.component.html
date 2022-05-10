@@ -1,13 +1,13 @@
 <div
   [@show-hide-toastr]="this.httpService.httpError ? 'show' : 'hide'"
-  class="toastr error"
+  class="toastr toastr--error"
 >
   An Error has occurred
 </div>
 
 <div
   [@show-hide-toastr]="this.httpService.httpSuccess ? 'show' : 'hide'"
-  class="toastr success"
+  class="toastr toastr--success"
 >
   <svg
     fill="none"
@@ -25,15 +25,15 @@
   Successful
 </div>
 
-<div id="header">
-  <div id="header-logo">
+<div class="header">
+  <div class="header__logo">
     <object
       data="../../../../assets/images/leaf.svg"
-      id="navBarObj"
+      class="header__logo__image"
       type="image/svg+xml"
     ></object>
   </div>
-  <div id="header-search">
+  <div class="header__search">
     <app-search></app-search>
   </div>
 </div>
