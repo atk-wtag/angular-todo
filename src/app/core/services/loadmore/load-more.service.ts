@@ -8,6 +8,8 @@ export class LoadMoreService {
   public showLoadMore = new BehaviorSubject<boolean>(false);
   public showLoadLess = new BehaviorSubject<boolean>(false);
 
+  public autoScrollCount = new BehaviorSubject<number>(0);
+
   private _showFrom = new BehaviorSubject<number>(0);
   private _showTill = new BehaviorSubject<number>(12);
 
@@ -48,6 +50,8 @@ export class LoadMoreService {
     this.showTill + this.maxIncrement > this.maxValue
       ? (this.showTill = this.maxValue)
       : (this.showTill += this.maxIncrement);
+
+    this.autoScrollCount.next(this.autoScrollCount.value + 1);
   }
 
   showLess() {

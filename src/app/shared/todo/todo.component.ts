@@ -105,7 +105,6 @@ export class TodoComponent implements OnInit, AfterViewChecked {
   markAsDone(todo: Todo) {
     const value = this._sanitizationService.sanitizeString(this.editValue);
     if (value) {
-      // this.editValue = value;
       this.showSpinner();
       this._state.setCompleted(todo);
       this.enableEdit

@@ -25,7 +25,9 @@
           [ngClass]="todoObject.completed ? 'completed' : ''"
           >{{ todoObject.description }}</label
         >
-        <p class="sm-txt">created on: {{ todoObject.createdAt | date }}</p>
+        <p class="sm-txt created_text">
+          created on: {{ todoObject.createdAt | date }}
+        </p>
       </ng-template>
 
       <ng-template [ngIf]="enableEdit">

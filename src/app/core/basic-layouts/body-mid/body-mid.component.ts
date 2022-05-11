@@ -1,4 +1,5 @@
 import {
+  AfterViewChecked,
   Component,
   ElementRef,
   OnDestroy,
@@ -16,7 +17,7 @@ import { LoadMoreService } from '../../services/loadmore/load-more.service';
   templateUrl: './body-mid.component.html',
   styleUrls: ['./body-mid.component.css'],
 })
-export class BodyMidComponent implements OnInit, OnDestroy {
+export class BodyMidComponent implements OnInit, AfterViewChecked, OnDestroy {
   newTaskVisible: boolean;
   todosToRender: any;
   currentRoute: string;
@@ -28,8 +29,12 @@ export class BodyMidComponent implements OnInit, OnDestroy {
   showFromSubscription: Subscription;
   showTillSubscription: Subscription;
   newTaskVisibleSubscrioption: Subscription;
+  autoScrollSubscription: Subscription;
 
-  @ViewChild('todoItem') todoItem: ElementRef;
+  lastScroll: number = 0;
+  currentScroll: number;
+
+  @ViewChild('bottomScroll') private _scrollBottom: ElementRef;
 
   constructor(
     public state: TodoStoreService,
@@ -38,7 +43,6 @@ export class BodyMidComponent implements OnInit, OnDestroy {
     public loadMoreService: LoadMoreService
   ) {
     this._addNewService.newTask = false;
-    this.loadMoreService.reset();
     this.currentRoute = this._router.url;
 
     this.showFromSubscription = this.loadMoreService.showFrom$.subscribe(
@@ -53,6 +57,11 @@ export class BodyMidComponent implements OnInit, OnDestroy {
       this._addNewService.newTaskVisible$.subscribe((value) => {
         this.newTaskVisible = value;
       });
+
+    this.autoScrollSubscription =
+      this.loadMoreService.autoScrollCount.subscribe((value) => {
+        this.currentScroll = value;
+      });
   }
 
   ngOnInit() {
@@ -62,9 +71,24 @@ export class BodyMidComponent implements OnInit, OnDestroy {
     else this.todosToRender = this.state.completedTodos$;
   }
 
+  ngAfterViewChecked() {
+    if (this.currentScroll > this.lastScroll) {
+      this.scrollToBottom();
+    }
+  }
+
+  scrollToBottom(): void {
+    try {
+      window.scrollBy(0, this._scrollBottom.nativeElement.scrollHeight);
+      this.lastScroll = this.currentScroll;
+    } catch (err) {}
+  }
+
   ngOnDestroy() {
+    this.loadMoreService.reset();
     this.showFromSubscription.unsubscribe();
     this.showTillSubscription.unsubscribe();
     this.newTaskVisibleSubscrioption.unsubscribe();
+    this.autoScrollSubscription.unsubscribe();
   }
 }
