@@ -11,7 +11,7 @@ import { LoadingSplashService } from '../loadingSplash/loading-splash.service';
 export class TodoStoreService {
   private readonly _todoSkeleton = {
     completed: false,
-    completedAt: null,
+    completedAt: undefined,
   };
 
   public searchKeyword: string = '';
@@ -40,12 +40,16 @@ export class TodoStoreService {
   }
 
   addTodo(description: string): void {
-    const newTodo = Object.assign(new Todo(), this._todoSkeleton, {
-      u_id: Date.now(),
-      description,
-      createdAt: this.getCurrentDate(),
-    });
+    const newTodo = new Todo(
+      Object.assign(this._todoSkeleton, {
+        u_id: Date.now(),
+        description,
+        createdAt: TodoStoreService.getCurrentDate(),
+      })
+    );
+
     this._httpService.addTodo(newTodo).subscribe();
+
     setTimeout(() => {
       this._todos.next([newTodo, ...this.todos]);
     }, environment.loadingDelay);
@@ -59,7 +63,7 @@ export class TodoStoreService {
   }
 
   setCompleted(value: Todo): void {
-    const date = this.getCurrentDate();
+    const date = TodoStoreService.getCurrentDate();
 
     const completedTodo = Object.assign(value, {
       completed: true,
@@ -73,6 +77,7 @@ export class TodoStoreService {
     const tempTodos = this.todos.map((todo: Todo) =>
       todo === value ? completedTodo : todo
     );
+
     this.assignWithDelay(tempTodos);
   }
 
@@ -96,7 +101,7 @@ export class TodoStoreService {
 
   readonly incompleteTodos$ = this.filterTodos(this.todos$, false);
 
-  getCurrentDate() {
+  static getCurrentDate() {
     return new Date(Date.now() + 1000 * 60 * -new Date().getTimezoneOffset())
       .toISOString()
       .replace('Z', '');

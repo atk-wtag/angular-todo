@@ -39,7 +39,7 @@ export class HttpInterceptorService {
         ) {
           let todoEvent = event
             .clone()
-            .body.map((todo: Todo[]) => new TodoOperation().deserialize(todo));
+            .body.map((todo: Todo[]) => TodoOperation.deserialize(todo));
           this._httpService.httpSuccess = true;
           return Object.assign(event, { body: todoEvent });
         }
