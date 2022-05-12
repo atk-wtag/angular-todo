@@ -27,7 +27,7 @@ export class BodyBottomComponent {
     });
   }
 
-  loadMore() {
+  loadMore = () => {
     this._bodySpinnerService.toggleSpinner();
     document.getElementById('mainBody')?.classList.add('disable');
     setTimeout(() => {
@@ -36,9 +36,9 @@ export class BodyBottomComponent {
 
       this.loadMoreService.loadMore();
     }, environment.loadingDelay);
-  }
+  };
 
-  showLessTodos() {
+  showLessTodos = () => {
     this._bodySpinnerService.toggleSpinner();
     document.getElementById('mainBody')?.classList.add('disable');
     setTimeout(() => {
@@ -46,5 +46,5 @@ export class BodyBottomComponent {
       document.getElementById('mainBody')?.classList.remove('disable');
       this.loadMoreService.showLess();
     }, environment.loadingDelay);
-  }
+  };
 }

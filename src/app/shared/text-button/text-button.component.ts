@@ -9,6 +9,8 @@ export class TextButtonComponent {
   @Input() class: string = 'text-button';
   @Input() text: string;
 
+  @Input() onClick: Function;
+
   @ViewChild('textButtonIcon') textButtonIcon: ElementRef;
 
   constructor() {}

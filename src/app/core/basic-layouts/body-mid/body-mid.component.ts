@@ -79,7 +79,10 @@ export class BodyMidComponent implements OnInit, AfterViewChecked, OnDestroy {
 
   scrollToBottom(): void {
     try {
-      window.scrollBy(0, this._scrollBottom.nativeElement.scrollHeight);
+      window.scrollBy({
+        top: this._scrollBottom.nativeElement.scrollHeight,
+        behavior: 'smooth',
+      });
       this.lastScroll = this.currentScroll;
     } catch (err) {}
   }

@@ -9,7 +9,7 @@ import { AddNewService } from 'src/app/core/services/addnew/addNew.service';
 export class BodyTopComponent {
   constructor(private _addNewService: AddNewService) {}
 
-  showAddNewTask() {
+  showAddNewTask = () => {
     this._addNewService.newTask = true;
-  }
+  };
 }

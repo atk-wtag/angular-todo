@@ -42,19 +42,23 @@ export class LoadMoreService {
     return this._showTill.value;
   }
 
-  get maxValue() {
-    return this.max.value;
-  }
-
   loadMore() {
-    this.showTill + this.maxIncrement > this.maxValue
-      ? (this.showTill = this.maxValue)
+    this.showTill + this.maxIncrement > this.max.value
+      ? (this.showTill = this.max.value)
       : (this.showTill += this.maxIncrement);
 
     this.autoScrollCount.next(this.autoScrollCount.value + 1);
   }
 
   showLess() {
+    if (!this.showLoadMore.value && this.showLoadLess.value) {
+      const remainder = this.max.value % this.maxIncrement;
+      if (remainder !== 0) {
+        this.showTill = this.max.value - remainder;
+        return;
+      }
+    }
+
     this.showTill - this.maxIncrement < this.maxIncrement
       ? (this.showTill = this.maxIncrement)
       : (this.showTill -= this.maxIncrement);
