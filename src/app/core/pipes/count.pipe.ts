@@ -8,7 +8,6 @@ import { LoadMoreService } from '../services/loadmore/load-more.service';
   name: 'count',
 })
 export class CountPipe implements PipeTransform, OnDestroy {
-  private _showLoadLess: boolean;
   private _showTillSubscription: Subscription;
 
   constructor(

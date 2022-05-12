@@ -3,12 +3,12 @@
     *ngIf="this.showMore"
     [text]="'Load More'"
     [class]="'load-more-button'"
-    [onClick]="loadMore"
+    [callback]="loadMore"
   ></app-text-button>
   <app-text-button
     *ngIf="this.showLess"
     [text]="'Show Less'"
     [class]="'load-more-button'"
-    [onClick]="showLessTodos"
+    [callback]="showLessTodos"
   ></app-text-button>
 </div>

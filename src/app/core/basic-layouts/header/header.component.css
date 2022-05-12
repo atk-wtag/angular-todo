@@ -4,7 +4,7 @@
   border-right: none;
   display: flex;
   justify-content: space-between;
-  min-height: 7.5vh;
+  min-height: 70px;
 }
 
 .header__logo {
@@ -45,4 +45,7 @@
 
 .toastr--success {
   background: rgba(11, 195, 117, 1);
+}
+
+@media screen and (max-width: 715px) {
 }

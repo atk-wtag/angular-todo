@@ -12,8 +12,8 @@
 .search-input {
   visibility: hidden;
   opacity: 0;
-  height: 4.5vh;
-  width: 25vw;
+  height: 40px;
+  width: 500px;
   position: relative;
   background: #ffffff;
   border: 3px solid #d1d8ff;
@@ -25,6 +25,32 @@
   line-height: 19px;
   color: #32394b;
   vertical-align: top;
+}
+
+@media screen and (max-width: 821px) {
+  .search-input {
+    width: 400px;
+  }
+}
+@media screen and (max-width: 693px) {
+  .search-input {
+    width: 300px;
+  }
+}
+@media screen and (max-width: 572px) {
+  .search-input {
+    width: 240px;
+  }
+}
+@media screen and (max-width: 500px) {
+  .search-input {
+    width: 180px;
+  }
+}
+@media screen and (max-width: 423px) {
+  .search-input {
+    width: 100%;
+  }
 }
 
 .search-input--fadeOut {
