@@ -1,6 +1,6 @@
 <app-splash
   class="body-splash-image"
-  *ngIf="this.loadingSplash.isLoading | async"
+  *ngIf="this.loadingSplashService.isLoading | async"
 ></app-splash>
 
 <div *ngIf="this.spinner" class="body-spinner">

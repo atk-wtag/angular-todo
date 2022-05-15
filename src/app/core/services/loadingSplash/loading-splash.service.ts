@@ -5,6 +5,7 @@ import { BehaviorSubject } from 'rxjs';
   providedIn: 'root',
 })
 export class LoadingSplashService {
-  constructor() {}
   public isLoading = new BehaviorSubject<boolean>(true);
+
+  constructor() {}
 }

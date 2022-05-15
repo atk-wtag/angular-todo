@@ -36,8 +36,7 @@ export class BodyMidComponent implements OnInit, AfterViewChecked, OnDestroy {
 
   @ViewChild('bottomScroll') private _scrollBottom: ElementRef;
 
-  x: any = 0;
-  y: any;
+  scrollTo: number = 0;
 
   constructor(
     public state: TodoStoreService,
@@ -74,7 +73,6 @@ export class BodyMidComponent implements OnInit, AfterViewChecked, OnDestroy {
     else this.todosToRender = this.state.completedTodos$;
   }
 
-  ngAfterViewInit() {}
   ngAfterViewChecked() {
     if (this.currentScroll > this.lastScroll) {
       this.scrollToBottom();
@@ -82,17 +80,20 @@ export class BodyMidComponent implements OnInit, AfterViewChecked, OnDestroy {
   }
 
   scrollToBottom(): void {
-    this.x = this._scrollBottom.nativeElement.offsetTop * 3;
+    this.scrollTo = this._scrollBottom.nativeElement.offsetTop * 3;
     try {
       window.scrollBy({
-        top: this.x,
+        top: this.scrollTo,
         behavior: 'smooth',
       });
       this.lastScroll = this.currentScroll;
-    } catch (err) {}
+    } catch (err) {
+      throw new Error('Scroll Error');
+    }
   }
 
   ngOnDestroy() {
+    this.loadMoreService.autoScrollCount.next(0);
     this.loadMoreService.reset();
     this.showFromSubscription.unsubscribe();
     this.showTillSubscription.unsubscribe();

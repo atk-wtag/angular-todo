@@ -35,7 +35,11 @@ export class TodoStoreService {
     const allTodos = this._httpService.getAllDescending();
     allTodos.subscribe((todos: Todo[]) => {
       this.todos = todos;
-      complete: this._loadingSplash.isLoading.next(false);
+      complete: this._httpService.stopProgressBar(),
+        this._httpService.progress.next(100),
+        setTimeout(() => {
+          this._loadingSplash.isLoading.next(false);
+        }, environment.loadingDelay);
     });
   }
 

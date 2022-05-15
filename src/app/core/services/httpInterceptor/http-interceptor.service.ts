@@ -40,7 +40,10 @@ export class HttpInterceptorService {
           let todoEvent = event
             .clone()
             .body.map((todo: Todo[]) => TodoOperation.deserialize(todo));
-          this._httpService.httpSuccess = true;
+          setTimeout(() => {
+            this._httpService.httpSuccess = true;
+          }, environment.loadingDelay * 1.5);
+
           return Object.assign(event, { body: todoEvent });
         }
         return event;

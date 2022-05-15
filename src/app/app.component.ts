@@ -42,7 +42,7 @@ export class AppComponent implements OnInit, DoCheck, AfterViewChecked {
     private _noTodosService: NoTodosService,
     private _changeDetector: ChangeDetectorRef,
     private _bodySpinnerService: BodySpinnerService,
-    public loadingSplash: LoadingSplashService
+    public loadingSplashService: LoadingSplashService
   ) {
     this._bodySpinnerService.spinner.subscribe(
       (value) => (this.spinner = value)
