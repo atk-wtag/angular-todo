@@ -1,3 +1,4 @@
+import { HttpClientModule } from '@angular/common/http';
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { SplashComponent } from './splash.component';
 
@@ -8,6 +9,7 @@ describe('SplashComponent', () => {
   beforeEach(async () => {
     await TestBed.configureTestingModule({
       declarations: [SplashComponent],
+      imports: [HttpClientModule],
     }).compileComponents();
   });
 
