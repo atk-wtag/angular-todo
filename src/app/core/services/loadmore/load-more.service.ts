@@ -28,6 +28,14 @@ export class LoadMoreService {
           : this.showLoadMore.next(true);
       });
     });
+
+    const screenHeight = window.innerHeight;
+    const screenWidth = window.innerWidth;
+
+    if (screenHeight > screenWidth) {
+      if (screenWidth <= 540) this.maxIncrement = 4;
+      else this.maxIncrement = 6;
+    }
   }
 
   get showFrom(): number {

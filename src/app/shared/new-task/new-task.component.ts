@@ -54,7 +54,7 @@ export class NewTaskComponent implements AfterViewInit {
       this.textArea.nativeElement.value
     );
     if (value) {
-      this.textArea.nativeElement.disabled = true;
+      // this.textArea.nativeElement.disabled = true;
       this.showSpinner();
       this._state.addTodo(value);
       if (this._router.url === '/complete') {
