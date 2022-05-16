@@ -3,6 +3,7 @@
   top: 20%;
   margin-right: 9vw;
   display: flex;
+  z-index: 1;
 }
 
 .search-button {
@@ -34,20 +35,25 @@
 }
 @media screen and (max-width: 693px) {
   .search-input {
+    width: 350px;
+  }
+}
+@media screen and (max-width: 640px) {
+  .search-input {
     width: 300px;
   }
 }
-@media screen and (max-width: 572px) {
+@media screen and (max-width: 576px) {
   .search-input {
-    width: 240px;
+    width: 250px;
   }
 }
-@media screen and (max-width: 500px) {
+@media screen and (max-width: 510px) {
   .search-input {
-    width: 180px;
+    width: 200px;
   }
 }
-@media screen and (max-width: 423px) {
+@media screen and (max-width: 456px) {
   .search-input {
     width: 100%;
   }

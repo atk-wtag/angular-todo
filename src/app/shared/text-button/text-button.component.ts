@@ -16,6 +16,6 @@ export class TextButtonComponent {
   constructor() {}
 
   onClick() {
-    this.callback ? this.callback() : undefined;
+    if (this.callback) this.callback();
   }
 }
