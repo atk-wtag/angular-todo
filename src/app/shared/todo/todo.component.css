@@ -39,7 +39,10 @@
 }
 
 .card__body__bottom__left__button {
-  margin: 0.2rem;
+  margin: 5px 5px 0 5px;
+}
+.card__body__bottom__left__button:last-of-type {
+  margin-top: 3.5px;
 }
 
 .completed {

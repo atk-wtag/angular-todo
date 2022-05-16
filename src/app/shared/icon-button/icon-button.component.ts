@@ -2,6 +2,7 @@ import {
   AfterViewInit,
   Component,
   ElementRef,
+  HostListener,
   Input,
   ViewChild,
 } from '@angular/core';
@@ -17,6 +18,14 @@ export class IconButtonComponent implements AfterViewInit {
   @Input() toolTipText: string;
   @Input() icon: string;
 
+  @HostListener('mouseover') mouseOver() {
+    this.toggleTooltipVisibility();
+  }
+
+  @HostListener('mouseout') mouseOut() {
+    this.toggleTooltipVisibility();
+  }
+
   @ViewChild('iconButtonVar') iconButton!: ElementRef;
   @ViewChild('tooltipVar') tooltip!: ElementRef;
 
@@ -26,7 +35,8 @@ export class IconButtonComponent implements AfterViewInit {
     this.iconButton.nativeElement.innerHTML = this.icon;
   }
 
-  toggleTooltipVisibility(className: string) {
+  toggleTooltipVisibility() {
+    const className: string = 'icon-button__tooltip--show';
     this.showToolTip = !this.showToolTip;
     this.showToolTip
       ? this.tooltip.nativeElement.classList.add(className)
