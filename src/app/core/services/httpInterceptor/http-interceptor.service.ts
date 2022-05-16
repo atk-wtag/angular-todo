@@ -42,7 +42,7 @@ export class HttpInterceptorService {
             .body.map((todo: Todo[]) => TodoOperation.deserialize(todo));
           setTimeout(() => {
             this._httpService.httpSuccess = true;
-          }, environment.loadingDelay * 1.5);
+          }, environment.loadingDelay);
 
           return Object.assign(event, { body: todoEvent });
         }

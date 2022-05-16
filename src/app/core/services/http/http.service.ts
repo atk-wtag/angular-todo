@@ -66,9 +66,9 @@ export class HttpService {
   }
 
   startProgressBar() {
-    const interval = 50;
+    const interval = 100;
     this.progressTimer = setInterval(() => {
-      if (this.progress.value == 90) {
+      if (this.progress.value === 90) {
         this.stopProgressBar();
         return;
       }
