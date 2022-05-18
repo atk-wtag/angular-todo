@@ -1,0 +1,37 @@
+<div class="container">
+  <div class="container__header"><p class="lg-txt">Add Tasks</p></div>
+
+  <div class="container__buttons" id="buttonDiv">
+    <div id="createButtonDiv" class="container__add-button">
+      <app-text-button
+        [class]="'create-button'"
+        [text]="'Create'"
+        [callback]="showAddNewTask"
+      ></app-text-button>
+    </div>
+    <!-- create button div end-->
+
+    <!-- filter buttons div -->
+    <div id="filterButtonDiv" class="container__filter-buttons">
+      <app-text-button
+        [text]="'All'"
+        [routerLink]="'/all'"
+        [routerLinkActive]="['button-active']"
+        [routerLinkActiveOptions]="{ exact: true }"
+      ></app-text-button>
+      <app-text-button
+        [text]="'Incomplete'"
+        [routerLink]="'/incomplete'"
+        [routerLinkActive]="['button-active']"
+        [routerLinkActiveOptions]="{ exact: true }"
+      ></app-text-button>
+      <app-text-button
+        [text]="'Completed'"
+        [routerLink]="'/complete'"
+        [routerLinkActive]="['button-active']"
+        [routerLinkActiveOptions]="{ exact: true }"
+      ></app-text-button>
+    </div>
+    <!-- filter buttons div end-->
+  </div>
+</div>

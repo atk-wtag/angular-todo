@@ -1,0 +1,19 @@
+<div class="container">
+  <div class="container__body-mid" #bottomScroll>
+    <app-new-task *ngIf="newTaskVisible"></app-new-task>
+    <ng-template [ngIf]="this.todosToRender">
+      <app-todo
+        #todoItem
+        *ngFor="
+          let todo of this.todosToRender
+            | async
+            | search: this.state.searchKeyword
+            | count
+            | slice: this.from:this.to
+        "
+        [todo]="todo"
+      >
+      </app-todo
+    ></ng-template>
+  </div>
+</div>

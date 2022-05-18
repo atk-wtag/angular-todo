@@ -1,0 +1,21 @@
+<div class="search-div">
+  <input
+    class="search-input"
+    placeholder="Minimum 3 characters"
+    #searchBar
+    type="text"
+    [ngClass]="
+      showSearchBar
+        ? 'search-input search-input--fadeIn'
+        : 'search-input search-input--fadeOut'
+    "
+    [(ngModel)]="this.state.searchKeyword"
+  />
+  <app-icon-button
+    class="search-button"
+    [icon]="getSearchIcon()"
+    [toolTipText]="'Search'"
+    (click)="toggleSearchBarVisibility()"
+  >
+  </app-icon-button>
+</div>

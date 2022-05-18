@@ -1,0 +1,88 @@
+.card {
+  overflow: hidden;
+  background: #ffffff;
+  border: 1px solid #dde2ff;
+  box-sizing: border-box;
+  border-radius: 5px;
+  padding: 15px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  word-wrap: break-word;
+  position: relative;
+}
+
+.card__body {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  gap: 15px;
+}
+
+@media only screen and (max-width: 339px) {
+  .card {
+    min-width: none;
+    max-width: auto;
+    margin-right: 8vw;
+  }
+}
+
+.card__body__top {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+}
+
+.card__body__bottom {
+  display: flex;
+  justify-content: space-between;
+}
+
+.card__body__bottom__left__button {
+  margin: 5px 5px 0 5px;
+}
+.card__body__bottom__left__button:last-of-type {
+  margin-top: 3.5px;
+}
+
+.completed {
+  text-decoration: line-through;
+  color: rgb(11, 195, 117);
+}
+
+.card__body__bottom__right {
+  position: relative;
+  display: flex;
+  background: #7a8dfd;
+  border-radius: 5px;
+  text-align: center;
+  align-items: center;
+  padding: 8px;
+  max-height: 15px;
+}
+
+.card__body__bottom__right__text {
+  color: rgba(255, 255, 255, 1);
+  font-size: 12px;
+  line-height: 14px;
+  font-weight: 500;
+}
+
+.card__body__bottom__left {
+  display: flex;
+}
+
+.card__spinner {
+  position: absolute;
+  align-self: center;
+  top: 38%;
+}
+
+.card__spinner__object__image {
+  animation: rotation 1000ms infinite linear;
+  z-index: 2;
+}
+
+.created_text {
+  margin: 0.75rem 0 1.25rem 0;
+}

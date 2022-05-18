@@ -1,0 +1,14 @@
+<div class="body-bottom">
+  <app-text-button
+    *ngIf="this.showMore"
+    [text]="'Load More'"
+    [class]="'load-more-button'"
+    [callback]="loadMore"
+  ></app-text-button>
+  <app-text-button
+    *ngIf="this.showLess"
+    [text]="'Show Less'"
+    [class]="'load-more-button'"
+    [callback]="showLessTodos"
+  ></app-text-button>
+</div>
