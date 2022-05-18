@@ -12,18 +12,17 @@
   background-color: #5a5d64;
   color: aliceblue;
   transform: translate(-20%);
-  padding: 4px 8px;
-  border-radius: 4px;
+  padding: 6px 8px;
+  border-radius: 3px;
   opacity: 0;
   font-size: 12px;
-  font-weight: 500;
   width: auto;
   pointer-events: none;
 }
 
 .icon-button__tooltip--show {
   visibility: visible;
-  opacity: 1;
-  transition: opacity 800ms;
-  transition-delay: 400ms;
+  opacity: 0.9;
+  transition: opacity 600ms;
+  transition-delay: 50ms;
 }
