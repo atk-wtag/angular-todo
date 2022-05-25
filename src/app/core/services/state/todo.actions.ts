@@ -10,8 +10,6 @@ export const ADD_TODO_SUCCESS = '[Todo] Add Todo Success';
 export const UPDATE_TODO = '[Todo] Update Todo';
 export const UPDATE_TODO_SUCCESS = '[Todo] Update Todo Success';
 
-// export const getAllTodo = createAction(FETCH_ALL_TODOS);
-
 export class GetAllTodo implements Action {
   readonly type = FETCH_ALL_TODOS;
 }

@@ -55,23 +55,6 @@ export class TodoStoreService {
     this._store.dispatch(deleteTodo({ todo: value }));
   }
 
-  setCompleted(value: Todo): void {
-    const date = TodoStoreService.getCurrentDate();
-
-    const completedTodo = Object.assign(value, {
-      completed: true,
-      completedAt: date,
-    });
-
-    this._httpService.updateTodo(completedTodo).subscribe();
-
-    const tempTodos = this.todos.map((todo: Todo) =>
-      todo === value ? completedTodo : todo
-    );
-
-    this.assign(tempTodos);
-  }
-
   updateTodo(value: Todo, description: string, completed: boolean): boolean {
     if (value.description === description && value.completed === completed)
       return false;
