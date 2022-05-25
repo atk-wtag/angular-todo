@@ -5,7 +5,7 @@ export class Todo {
   createdAt: String;
   completedAt?: String;
 
-  constructor(todo: Todo) {
+  constructor(todo: any) {
     this.u_id = todo.u_id;
     this.description = todo.description;
     this.completed = todo.completed;

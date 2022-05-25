@@ -6,8 +6,8 @@ import {
   OnInit,
   ViewChild,
 } from '@angular/core';
-import { TodoStoreService } from 'src/app/core/services/state/todoStore.service';
-import { environment } from 'src/environments/environment';
+import { Store } from '@ngrx/store';
+import { TodoStoreService } from 'src/app/core/services/state/todoController.service';
 import { SanitizeService } from '../../core/services/sanitization/sanitize.service';
 import { Todo } from '../../models/todo.model';
 
@@ -28,7 +28,8 @@ export class TodoComponent implements OnInit, AfterViewChecked {
 
   constructor(
     private _state: TodoStoreService,
-    private _sanitizationService: SanitizeService
+    private _sanitizationService: SanitizeService,
+    private _store: Store<{ todo: Todo[] }>
   ) {}
 
   ngOnInit(): void {
@@ -103,26 +104,21 @@ export class TodoComponent implements OnInit, AfterViewChecked {
   }
 
   markAsDone(todo: Todo) {
-    const value = this._sanitizationService.sanitizeString(this.editValue);
-    if (value) {
-      this.showSpinner();
-      this._state.setCompleted(todo);
-      this.enableEdit
-        ? todo.description !== value
-          ? this.updateTodo(todo, false)
-          : (this.enableEdit = !this.enableEdit)
-        : undefined;
-    }
+    this.editValue === todo.description
+      ? this.updateTodo(todo, false, true)
+      : this.updateTodo(todo, true, true);
   }
 
-  updateTodo(todo: Todo, sanitize: boolean = true) {
+  updateTodo(todo: Todo, sanitize: boolean = true, completed: boolean = false) {
     const value = sanitize
       ? this._sanitizationService.sanitizeString(this.editValue)
       : this.editValue;
     if (value) {
       this.showSpinner();
-      this.enableEdit = !this.enableEdit;
-      this._state.updateTodo(todo, value);
+      this.enableEdit = false;
+      !this._state.updateTodo(todo, value, completed)
+        ? this.resetCard()
+        : undefined;
       this.editValue = value;
     }
   }
@@ -136,9 +132,9 @@ export class TodoComponent implements OnInit, AfterViewChecked {
   showSpinner() {
     this.todoMain.nativeElement.classList.add('disable');
     this.spinner = !this.spinner;
-    setTimeout(() => {
-      this.spinner = !this.spinner;
-      this.todoMain.nativeElement.classList.remove('disable');
-    }, environment.loadingDelay);
+  }
+  resetCard() {
+    this.todoMain.nativeElement.classList.remove('disable');
+    this.spinner = !this.spinner;
   }
 }

@@ -11,7 +11,7 @@ import { map } from 'rxjs/operators';
 import { Todo, TodoOperation } from 'src/app/models/todo.model';
 import { environment } from 'src/environments/environment';
 import { HttpService } from '../http/http.service';
-import { TodoStoreService } from '../state/todoStore.service';
+import { TodoStoreService } from '../state/todoController.service';
 
 @Injectable()
 export class HttpInterceptorService {

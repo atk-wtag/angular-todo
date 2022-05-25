@@ -1,5 +1,5 @@
 import { Component, ElementRef, ViewChild } from '@angular/core';
-import { TodoStoreService } from 'src/app/core/services/state/todoStore.service';
+import { TodoStoreService } from 'src/app/core/services/state/todoController.service';
 
 @Component({
   selector: 'app-search',

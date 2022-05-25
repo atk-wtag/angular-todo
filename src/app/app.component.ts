@@ -8,12 +8,14 @@ import {
   ViewChild,
 } from '@angular/core';
 import { Event, NavigationEnd, NavigationStart, Router } from '@angular/router';
+import { Store } from '@ngrx/store';
 import { environment } from '../environments/environment.prod';
 import { BodySpinnerService } from './core/services/bodySpinner/body-spinner.service';
 import { LoadingSplashService } from './core/services/loadingSplash/loading-splash.service';
 import { LoadMoreService } from './core/services/loadmore/load-more.service';
 import { NoTodosService } from './core/services/NoTodos/no-todos.service';
-import { TodoStoreService } from './core/services/state/todoStore.service';
+import { GetAllTodo } from './core/services/state/todo.actions';
+import { TodoStoreService } from './core/services/state/todoController.service';
 
 @Component({
   selector: 'app-root',
@@ -42,7 +44,8 @@ export class AppComponent implements OnInit, DoCheck, AfterViewChecked {
     private _noTodosService: NoTodosService,
     private _changeDetector: ChangeDetectorRef,
     private _bodySpinnerService: BodySpinnerService,
-    public loadingSplashService: LoadingSplashService
+    public loadingSplashService: LoadingSplashService,
+    private _store: Store
   ) {
     this._bodySpinnerService.spinner.subscribe(
       (value) => (this.spinner = value)
@@ -50,10 +53,12 @@ export class AppComponent implements OnInit, DoCheck, AfterViewChecked {
   }
 
   ngOnInit() {
+    this._store.dispatch(new GetAllTodo());
+
     this._noTodosService.noTodos.subscribe((value) => {
       this.noTodos = value;
     });
-    this.state.getAllTodos();
+    // this.state.getAllTodos();
 
     this._loadMoreService.showLoadMore.next(true);
     this._router.events.subscribe((event: Event) => {

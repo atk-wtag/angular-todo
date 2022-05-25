@@ -1,6 +1,6 @@
 import { HttpClientModule } from '@angular/common/http';
 import { TestBed } from '@angular/core/testing';
-import { TodoStoreService } from './todoStore.service';
+import { TodoStoreService } from './todoController.service';
 
 describe('TodoStateService', () => {
   let service: TodoStoreService;
