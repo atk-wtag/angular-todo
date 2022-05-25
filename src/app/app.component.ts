@@ -58,7 +58,6 @@ export class AppComponent implements OnInit, DoCheck, AfterViewChecked {
     this._noTodosService.noTodos.subscribe((value) => {
       this.noTodos = value;
     });
-    // this.state.getAllTodos();
 
     this._loadMoreService.showLoadMore.next(true);
     this._router.events.subscribe((event: Event) => {

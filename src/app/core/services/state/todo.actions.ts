@@ -20,11 +20,6 @@ export const fetchSuccess = createAction(
   props<{ todos: Todo[] }>()
 );
 
-// export class GetAllTodoSuccess implements Action {
-//   readonly type = FETCH_ALL_TODOS_SUCCESS;
-//   constructor(public payload: Todo[]) {}
-// }
-
 export const deleteTodo = createAction(DELETE_TODO, props<{ todo: Todo }>());
 export const deleteSuccess = createAction(
   DELETE_TODO_SUCCESS,

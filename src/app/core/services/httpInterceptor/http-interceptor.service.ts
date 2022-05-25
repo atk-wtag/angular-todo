@@ -6,18 +6,21 @@ import {
   HttpResponse,
 } from '@angular/common/http';
 import { Injectable } from '@angular/core';
+import { Store } from '@ngrx/store';
 import { catchError, Observable, retry, throwError } from 'rxjs';
 import { map } from 'rxjs/operators';
 import { Todo, TodoOperation } from 'src/app/models/todo.model';
 import { environment } from 'src/environments/environment';
 import { HttpService } from '../http/http.service';
+import { GetAllTodo } from '../state/todo.actions';
 import { TodoStoreService } from '../state/todoController.service';
 
 @Injectable()
 export class HttpInterceptorService {
   constructor(
     private _state: TodoStoreService,
-    private _httpService: HttpService
+    private _httpService: HttpService,
+    private _store: Store<{ todo: Todo[] }>
   ) {}
 
   intercept(
@@ -51,7 +54,8 @@ export class HttpInterceptorService {
       retry(2),
       catchError((error: HttpErrorResponse) => {
         this._httpService.httpError = true;
-        if (requestWithHeader.method !== 'GET') this._state.getAllTodos();
+        if (requestWithHeader.method !== 'GET')
+          this._store.dispatch(new GetAllTodo());
         else this._state.resetTodoSubject();
 
         return throwError(() => error);

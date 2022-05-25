@@ -56,11 +56,11 @@ export class NewTaskComponent implements AfterViewInit {
     if (value) {
       this.textArea.nativeElement.disabled = true;
       this.showSpinner();
-      const added = this._state.addTodo(value);
+      this._state.addTodo(value);
       if (this._router.url === '/complete') {
         setTimeout(() => {
           this._router.navigateByUrl('/all');
-        }, environment.loadingDelay * 2);
+        }, environment.loadingDelay * 3);
       }
     }
 

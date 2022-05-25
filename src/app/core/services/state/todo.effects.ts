@@ -30,8 +30,6 @@ export class TodoEffects {
   ) {}
 
   manageProgressBar(): void {
-    console.log(4);
-
     const httpSubsctiption = this._httpService._httpSuccess.subscribe(
       (success: boolean) => {
         if (success) {
@@ -54,7 +52,6 @@ export class TodoEffects {
       ofType(FETCH_ALL_TODOS),
       mergeMap(() => {
         const httpResult = this._httpService.getAllDescending();
-        this._todoStore.getAllTodos();
         this.manageProgressBar();
         return httpResult.pipe(map((data) => fetchSuccess({ todos: data })));
       })

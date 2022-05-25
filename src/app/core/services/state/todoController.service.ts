@@ -26,7 +26,11 @@ export class TodoStoreService {
     private _httpService: HttpService,
     private _loadingSplash: LoadingSplashService,
     private _store: Store<{ todos: Todo[] }>
-  ) {}
+  ) {
+    this.todos$ = this._store.select(getTodos);
+    this.completedTodos$ = this._store.select(getCompleted);
+    this.incompleteTodos$ = this._store.select(getIncomplete);
+  }
 
   set todos(value: Todo[]) {
     this._todos.next(value);
@@ -34,12 +38,6 @@ export class TodoStoreService {
 
   get todos(): Todo[] {
     return this._todos.getValue();
-  }
-
-  getAllTodos() {
-    this.todos$ = this._store.select(getTodos);
-    this.completedTodos$ = this._store.select(getCompleted);
-    this.incompleteTodos$ = this._store.select(getIncomplete);
   }
 
   addTodo(description: string): void {
