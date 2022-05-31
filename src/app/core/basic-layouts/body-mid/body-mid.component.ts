@@ -9,7 +9,7 @@ import {
 import { Router } from '@angular/router';
 import { Subscription } from 'rxjs/internal/Subscription';
 import { AddNewService } from 'src/app/core/services/addnew/addNew.service';
-import { TodoStoreService } from 'src/app/core/services/state/todoStore.service';
+import { TodoStoreService } from 'src/app/core/services/state/todoController.service';
 import { LoadMoreService } from '../../services/loadmore/load-more.service';
 
 @Component({

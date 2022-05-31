@@ -1,0 +1,77 @@
+$border-color: #d1d8ff;
+$font-color: #32394b;
+$line-height: 19px;
+
+$breakpoints: (
+  mobile-sm: 456px,
+  mobile-md: 510px,
+  mobile-lg: 576px,
+  tablet-sm: 640px,
+  tablet-md: 693px,
+  tablet-lg: 821px,
+);
+
+$sizes: (
+  tablet-lg: 400px,
+  tablet-md: 350px,
+  tablet-sm: 300px,
+  mobile-lg: 250px,
+  mobile-md: 200px,
+  mobile-sm: 100%,
+);
+
+@mixin devices($size) {
+  @each $key, $value in $breakpoints {
+    @if ($size == $key) {
+      @media screen and (max-width: $value) {
+        @content;
+      }
+    }
+  }
+}
+
+.search {
+  position: relative;
+  top: 20%;
+  margin-right: 9vw;
+  display: flex;
+  z-index: 1;
+  &__search-button {
+    padding-top: 0.5vh;
+  }
+  &__search-input {
+    visibility: hidden;
+    opacity: 0;
+    height: 40px;
+    width: 500px;
+    position: relative;
+    background: #ffffff;
+    border: 3px solid $border-color;
+    box-sizing: border-box;
+    border-radius: 5px;
+    font-style: normal;
+    font-weight: 500;
+    font-size: $default-font;
+    line-height: $line-height;
+    color: $font-color;
+    vertical-align: top;
+
+    @each $key, $value in $sizes {
+      @include devices($key) {
+        width: $value;
+      }
+    }
+  }
+}
+
+.search-input--fadeIn {
+  visibility: visible;
+  opacity: 1;
+  transition: visibility 0s linear 0ms, opacity 400ms;
+}
+
+.search-input--fadeOut {
+  visibility: hidden;
+  opacity: 0;
+  transition: visibility 0s linear 300ms, opacity 400ms;
+}

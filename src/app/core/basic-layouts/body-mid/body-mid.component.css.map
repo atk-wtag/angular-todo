@@ -1,0 +1,9 @@
+{
+    "version": 3,
+    "mappings": "AAAA,AAAA,oBAAoB,CAAC;EACnB,UAAU,EAAE,GAAG;EACf,OAAO,EAAE,IAAI;EACb,cAAc,EAAE,GAAG;EACnB,qBAAqB,EAAE,qCAAqC;EAC5D,GAAG,EAAE,MAAM;CACZ",
+    "sources": [
+        "body-mid.component.scss"
+    ],
+    "names": [],
+    "file": "body-mid.component.css"
+}

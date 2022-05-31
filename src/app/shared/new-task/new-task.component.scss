@@ -1,0 +1,49 @@
+@mixin flex($justify: space-between, $direction: row) {
+  display: flex;
+  justify-content: $justify;
+  flex-direction: $direction;
+}
+
+.add-todo {
+  overflow: hidden;
+  background: #ffffff;
+  border: 1px solid #dde2ff;
+  box-sizing: border-box;
+  border-radius: 5px;
+  padding: 4%;
+  @include flex($direction: column);
+  word-wrap: break-word;
+  position: relative;
+  &__main {
+    @include flex($direction: column);
+    gap: 15px;
+    &__bottom {
+      @include flex();
+      &__buttons {
+        @include flex();
+      }
+    }
+    &__bottom__buttons__icon-button {
+      margin: 0.2em;
+    }
+  }
+  &__spinner {
+    position: absolute;
+    align-self: center;
+    top: 38%;
+    z-index: 1;
+
+    &__object__image {
+      animation: rotation 1000ms infinite linear;
+      z-index: 2;
+    }
+  }
+}
+
+@media only screen and (max-width: 339px) {
+  .add-todo {
+    min-width: none;
+    max-width: auto;
+    margin-right: 8vw;
+  }
+}

@@ -1,6 +1,6 @@
 import { AfterViewInit, Component, ElementRef, ViewChild } from '@angular/core';
 import { Router } from '@angular/router';
-import { TodoStoreService } from 'src/app/core/services/state/todoStore.service';
+import { TodoStoreService } from 'src/app/core/services/state/todoController.service';
 import { environment } from 'src/environments/environment';
 import { AddNewService } from '../../core/services/addnew/addNew.service';
 import { SanitizeService } from '../../core/services/sanitization/sanitize.service';
@@ -60,7 +60,7 @@ export class NewTaskComponent implements AfterViewInit {
       if (this._router.url === '/complete') {
         setTimeout(() => {
           this._router.navigateByUrl('/all');
-        }, environment.loadingDelay);
+        }, environment.loadingDelay * 3);
       }
     }
 
@@ -77,10 +77,5 @@ export class NewTaskComponent implements AfterViewInit {
   showSpinner() {
     this.addTodoMain.nativeElement.classList.add('disable');
     this.spinner = !this.spinner;
-    setTimeout(() => {
-      this.deleteCard();
-      this.spinner = !this.spinner;
-      this.addTodoMain.nativeElement.classList.remove('disable');
-    }, environment.loadingDelay);
   }
 }

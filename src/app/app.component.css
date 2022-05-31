@@ -1,12 +1,15 @@
-.no-todos {
+.body-spinner {
   position: absolute;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  padding-top: 20vh;
-  height: auto;
-  width: 100vw;
+  top: 47%;
+  left: 48%;
+}
+
+.body-spinner__image {
+  -webkit-animation: rotation 1000ms infinite linear;
+          animation: rotation 1000ms infinite linear;
+  position: fixed;
+  z-index: 1;
+  opacity: 1;
 }
 
 .body-splash-image {
@@ -15,20 +18,28 @@
   z-index: 10;
 }
 
-.body-spinner {
+.no-todos {
   position: absolute;
-  top: 47%;
-  left: 48%;
-}
-
-.body-spinner__image {
-  animation: rotation 1000ms infinite linear;
-  position: fixed;
-  z-index: 1;
-  opacity: 1;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  padding-top: 20vh;
+  height: auto;
+  width: 100vw;
 }
 
 .no-todos__txt {
   text-align: center;
   padding: 0 5vw;
 }
+/*# sourceMappingURL=app.component.css.map */

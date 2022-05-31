@@ -2,14 +2,81 @@
   overflow: hidden;
   background: #ffffff;
   border: 1px solid #dde2ff;
-  box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
   border-radius: 5px;
   padding: 4%;
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
-  flex-direction: column;
-  justify-content: space-between;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
   word-wrap: break-word;
   position: relative;
+}
+
+.add-todo__main {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  gap: 15px;
+}
+
+.add-todo__main__bottom {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+}
+
+.add-todo__main__bottom__buttons {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+}
+
+.add-todo__main__bottom__buttons__icon-button {
+  margin: 0.2em;
+}
+
+.add-todo__spinner {
+  position: absolute;
+  -ms-flex-item-align: center;
+      -ms-grid-row-align: center;
+      align-self: center;
+  top: 38%;
+  z-index: 1;
+}
+
+.add-todo__spinner__object__image {
+  -webkit-animation: rotation 1000ms infinite linear;
+          animation: rotation 1000ms infinite linear;
+  z-index: 2;
 }
 
 @media only screen and (max-width: 339px) {
@@ -19,33 +86,4 @@
     margin-right: 8vw;
   }
 }
-.add-todo__main {
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  gap: 15px;
-}
-
-.add-todo__main__bottom__buttons__icon-button {
-  margin: 0.2em;
-}
-
-.add-todo__main__bottom {
-  display: flex;
-  justify-content: space-between;
-}
-
-.add-todo__main__bottom__buttons {
-  display: flex;
-}
-
-.add-todo__spinner {
-  position: absolute;
-  align-self: center;
-  top: 38%;
-  z-index: 1;
-}
-.add-todo__spinner__object__image {
-  animation: rotation 1000ms infinite linear;
-  z-index: 2;
-}
+/*# sourceMappingURL=new-task.component.css.map */

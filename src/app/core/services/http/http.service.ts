@@ -14,7 +14,7 @@ export class HttpService {
 
   private readonly _apiUrl = environment.apiUrl;
 
-  private _httpSucccess = new BehaviorSubject<boolean>(false);
+  public _httpSuccess = new BehaviorSubject<boolean>(false);
   public progress = new BehaviorSubject<number>(0);
   private _httpError = new BehaviorSubject<boolean>(false);
 
@@ -25,20 +25,23 @@ export class HttpService {
   }
 
   set httpError(value: boolean) {
+    this.stopProgressBar();
     this._httpError.next(value);
+    this.startProgressBar(30);
     setTimeout(() => {
       this._httpError.next(!value);
+      this.progress.next(30);
     }, this._errorTimeout);
   }
 
   get httpSuccess(): boolean {
-    return this._httpSucccess.getValue();
+    return this._httpSuccess.getValue();
   }
 
   set httpSuccess(value: boolean) {
-    this._httpSucccess.next(value);
+    this._httpSuccess.next(value);
     setTimeout(() => {
-      this._httpSucccess.next(!value);
+      this._httpSuccess.next(!value);
     }, this._successTimeout);
   }
 
@@ -60,15 +63,15 @@ export class HttpService {
     return this.httpClient.post(`${this._apiUrl}`, todo);
   }
 
-  updateTodo(todo: any): Observable<any> {
+  updateTodo(todo: Todo): Observable<any> {
     const u_id: number = todo.u_id;
     return this.httpClient.patch(`${this._apiUrl}u_id=eq.${u_id}`, todo);
   }
 
-  startProgressBar() {
+  startProgressBar(end: number = 90) {
     const interval = 100;
     this.progressTimer = setInterval(() => {
-      if (this.progress.value === 90) {
+      if (this.progress.value === end) {
         this.stopProgressBar();
         return;
       }

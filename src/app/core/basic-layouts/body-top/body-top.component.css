@@ -1,29 +1,62 @@
 .container__buttons {
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
-  flex-direction: row;
-  justify-content: space-between;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
 }
 
-.container__filter-buttons {
+.container__buttons .container__filter-buttons {
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
-  justify-content: right;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -webkit-box-pack: right;
+      -ms-flex-pack: right;
+          justify-content: right;
   gap: 0.5vw;
 }
 
 @media only screen and (max-width: 500px) {
   .container__buttons {
-    flex-direction: column;
-    justify-content: space-between;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    -webkit-box-pack: justify;
+        -ms-flex-pack: justify;
+            justify-content: space-between;
     gap: 20px;
   }
-  .container__filter-buttons {
+  .container__buttons .container__filter-buttons {
+    display: -webkit-box;
+    display: -ms-flexbox;
     display: flex;
-    justify-content: space-evenly;
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: row;
+            flex-direction: row;
+    -webkit-box-pack: space-evenly;
+        -ms-flex-pack: space-evenly;
+            justify-content: space-evenly;
     gap: 0.5vw;
   }
 }
 
 .button-active {
-  box-shadow: #dde2ff 0 0.5px 2px, #dde2ff 0 0 8px;
+  -webkit-box-shadow: #dde2ff 0 0.5px 2px, #dde2ff 0 0 8px;
+          box-shadow: #dde2ff 0 0.5px 2px, #dde2ff 0 0 8px;
   border-radius: 5px;
 }
+/*# sourceMappingURL=body-top.component.css.map */

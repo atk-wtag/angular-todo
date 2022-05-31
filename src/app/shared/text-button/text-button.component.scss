@@ -1,0 +1,77 @@
+* {
+  cursor: pointer;
+  border-radius: 5px;
+  text-align: center;
+}
+.text-button {
+  font-size: $default-font - 1px;
+  line-height: 20px;
+  color: #32394b;
+  background: #ffffff;
+  border: 1px solid #dde2ff;
+  min-height: 3.8vh;
+  min-width: 2.5vw;
+  padding: 0 15px;
+  background-size: 0% 100%;
+  transition: background-size 700ms ease-in-out;
+  -webkit-transition: all 700ms ease-in-out;
+
+  &:hover {
+    animation: color-change 300ms linear both;
+    transition: background-size 500ms ease-in-out;
+    background: linear-gradient(
+      to right,
+      rgb(122, 141, 253, 0.95),
+      rgb(122, 141, 253, 0.95)
+    );
+    background-repeat: no-repeat;
+    box-shadow: #dde2ff 0 1px 0, #dde2ff 0 0 10px;
+    background-size: 100% 100%;
+  }
+}
+
+.create-button {
+  font-size: $default-font;
+  min-width: 5.6vw;
+  line-height: 19px;
+  color: #ffffff;
+  background: #7a8dfd;
+  border: 1px solid #7a8dfd;
+  min-height: 3.8vh;
+  padding: 0 15px;
+  background-size: 0% 100%;
+  &:hover {
+    box-shadow: rgba(122, 141, 253, 0.6) 0px 0px 2px,
+      rgba(122, 141, 253, 0.6) 0px 0px 3px;
+    transition: all 200ms linear;
+    transform: scale(1.04);
+  }
+}
+
+#buttonIconSpan {
+  padding-right: 0.3vw;
+}
+
+.load-more-button {
+  margin: 20px;
+  background: rgba(50, 57, 75, 0.9);
+  border-radius: 4px;
+  border: none;
+  font-size: $default-font;
+  line-height: 18px;
+  color: #ffffff;
+  min-height: 3.8vh;
+  min-width: 6vw;
+  padding: 0 15px;
+  &:hover {
+    background-color: rgba(50, 57, 75, 1);
+    transition: all 200ms linear;
+    transform: scale(1.06);
+  }
+}
+
+@keyframes color-change {
+  to {
+    color: white;
+  }
+}
