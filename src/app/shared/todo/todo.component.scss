@@ -1,0 +1,79 @@
+.card {
+  overflow: hidden;
+  background: #ffffff;
+  border: 1px solid #dde2ff;
+  box-sizing: border-box;
+  border-radius: 5px;
+  padding: 15px;
+  @include flex($direction: column);
+  word-wrap: break-word;
+  position: relative;
+
+  &__body {
+    @include flex($direction: column);
+    gap: 15px;
+
+    &__top {
+      @include flex($direction: column, $justify: space-between);
+    }
+
+    &__bottom {
+      @include flex();
+
+      &__left {
+        @include flex();
+
+        &__button {
+          margin: 5px 5px 0 5px;
+          &:last-of-type {
+            margin-top: 3.5px;
+          }
+        }
+      }
+
+      &__right {
+        position: relative;
+        @include flex();
+        background: #7a8dfd;
+        border-radius: 5px;
+        text-align: center;
+        padding: 8px;
+        max-height: 15px;
+
+        &__text {
+          color: rgba(255, 255, 255, 1);
+          font-size: $tooltip-font;
+          line-height: 14px;
+          font-weight: 500;
+        }
+      }
+    }
+  }
+
+  &__spinner {
+    position: absolute;
+    align-self: center;
+    top: 38%;
+    &__object__image {
+      animation: rotation 1000ms infinite linear;
+      z-index: 2;
+    }
+  }
+}
+
+@media only screen and (max-width: 339px) {
+  .card {
+    min-width: none;
+    max-width: auto;
+    margin-right: 8vw;
+  }
+}
+
+.completed {
+  text-decoration: line-through;
+  color: rgb(11, 195, 117);
+}
+
+.created_text {
+  margin: 0.75rem 0 1.25rem 0;
+}

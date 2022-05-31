@@ -1,16 +1,18 @@
-.search-div {
+.search {
   position: relative;
   top: 20%;
   margin-right: 9vw;
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
   z-index: 1;
 }
 
-.search-button {
+.search__search-button {
   padding-top: 0.5vh;
 }
 
-.search-input {
+.search__search-input {
   visibility: hidden;
   opacity: 0;
   height: 40px;
@@ -18,6 +20,7 @@
   position: relative;
   background: #ffffff;
   border: 3px solid #d1d8ff;
+  -webkit-box-sizing: border-box;
   box-sizing: border-box;
   border-radius: 5px;
   font-style: normal;
@@ -29,44 +32,52 @@
 }
 
 @media screen and (max-width: 821px) {
-  .search-input {
+  .search__search-input {
     width: 400px;
   }
 }
+
 @media screen and (max-width: 693px) {
-  .search-input {
+  .search__search-input {
     width: 350px;
   }
 }
+
 @media screen and (max-width: 640px) {
-  .search-input {
+  .search__search-input {
     width: 300px;
   }
 }
+
 @media screen and (max-width: 576px) {
-  .search-input {
+  .search__search-input {
     width: 250px;
   }
 }
+
 @media screen and (max-width: 510px) {
-  .search-input {
+  .search__search-input {
     width: 200px;
   }
 }
+
 @media screen and (max-width: 456px) {
-  .search-input {
+  .search__search-input {
     width: 100%;
   }
-}
-
-.search-input--fadeOut {
-  visibility: hidden;
-  opacity: 0;
-  transition: visibility 0s linear 300ms, opacity 400ms;
 }
 
 .search-input--fadeIn {
   visibility: visible;
   opacity: 1;
+  -webkit-transition: visibility 0s linear 0ms, opacity 400ms;
   transition: visibility 0s linear 0ms, opacity 400ms;
 }
+
+.search-input--fadeOut {
+  visibility: hidden;
+  opacity: 0;
+  -webkit-transition: visibility 0s linear 300ms, opacity 400ms;
+  transition: visibility 0s linear 300ms, opacity 400ms;
+}
+/*# sourceMappingURL=search.component.css.map */

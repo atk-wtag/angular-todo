@@ -1,0 +1,25 @@
+$active-shadow: #dde2ff;
+
+.container__buttons {
+  @include flex();
+  .container__filter-buttons {
+    @include display-flex($justify: right);
+    gap: 0.5vw;
+  }
+}
+
+@media only screen and (max-width: 500px) {
+  .container__buttons {
+    @include flex($direction: column, $justify: space-between);
+    gap: 20px;
+    .container__filter-buttons {
+      @include flex($justify: space-evenly);
+      gap: 0.5vw;
+    }
+  }
+}
+
+.button-active {
+  box-shadow: $active-shadow 0 0.5px 2px, $active-shadow 0 0 8px;
+  border-radius: 5px;
+}

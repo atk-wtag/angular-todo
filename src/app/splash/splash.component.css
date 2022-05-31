@@ -10,6 +10,7 @@
 .progress__progress-bar {
   animation: blink-animation 500ms infinite alternate;
   -webkit-animation: blink-animation 500ms infinite alternate;
+  -webkit-transition: all 150ms linear;
   transition: all 150ms linear;
   border-radius: inherit;
   width: 0%;
@@ -21,10 +22,19 @@
   z-index: 2;
   background-color: #f5f5f5;
   height: 100vh;
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
 }
 
 @media only screen and (max-width: 600px) {
@@ -42,6 +52,7 @@
     opacity: 1;
   }
 }
+
 @-webkit-keyframes blink-animation {
   from {
     opacity: 0.8;
@@ -50,3 +61,4 @@
     opacity: 1;
   }
 }
+/*# sourceMappingURL=splash.component.css.map */

@@ -1,0 +1,30 @@
+$background: #5a5d64;
+
+.icon-button {
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+
+  &__tooltip {
+    text-align: center;
+    z-index: 3;
+    position: fixed;
+    visibility: hidden;
+    background-color: $background;
+    color: aliceblue;
+    transform: translate(-20%);
+    padding: 6px 8px;
+    border-radius: 3px;
+    opacity: 0;
+    font-size: $tooltip-font;
+    width: auto;
+    pointer-events: none;
+
+    &--show {
+      visibility: visible;
+      opacity: 0.9;
+      transition: opacity 600ms;
+      transition-delay: 50ms;
+    }
+  }
+}

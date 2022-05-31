@@ -1,0 +1,29 @@
+.body-spinner {
+  position: absolute;
+  top: 47%;
+  left: 48%;
+
+  &__image {
+    animation: rotation 1000ms infinite linear;
+    position: fixed;
+    z-index: 1;
+    opacity: 1;
+  }
+}
+.body-splash-image {
+  position: absolute;
+  width: 100vw;
+  z-index: 10;
+}
+
+.no-todos {
+  position: absolute;
+  @include flex($direction: column, $justify: center, $align: center);
+  padding-top: 20vh;
+  height: auto;
+  width: 100vw;
+  &__txt {
+    text-align: center;
+    padding: 0 5vw;
+  }
+}
